@@ -1,0 +1,5304 @@
+{
+	"report": {
+		"slug": "552818da-d4d5-4d3b-bc32-0b6e85059f13",
+		"creditScores": [
+			{
+				"id": 3475,
+				"status_id": 1,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"credit_score": "467",
+				"lender_rank": null,
+				"score_scale": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:52.000000Z",
+				"updated_at": "2024-12-21T10:37:52.000000Z",
+				"deleted_at": null,
+				"old_scores": "467",
+				"score_difference": "+0",
+				"credit_reporting_agency": {
+					"id": 1,
+					"name": "TransUnion",
+					"checkbox": 0,
+					"selected_address": 101,
+					"type": 0
+				}
+			},
+			{
+				"id": 3476,
+				"status_id": 1,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"credit_score": "470",
+				"lender_rank": null,
+				"score_scale": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:52.000000Z",
+				"updated_at": "2024-12-21T10:37:52.000000Z",
+				"deleted_at": null,
+				"old_scores": "470",
+				"score_difference": "+0",
+				"credit_reporting_agency": {
+					"id": 3,
+					"name": "Experian",
+					"checkbox": 0,
+					"selected_address": 14,
+					"type": 0
+				}
+			},
+			{
+				"id": 3477,
+				"status_id": 1,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"credit_score": "510",
+				"lender_rank": null,
+				"score_scale": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:52.000000Z",
+				"updated_at": "2024-12-21T10:37:52.000000Z",
+				"deleted_at": null,
+				"old_scores": "510",
+				"score_difference": "+0",
+				"credit_reporting_agency": {
+					"id": 2,
+					"name": "Equifax",
+					"checkbox": 0,
+					"selected_address": 6,
+					"type": 0
+				}
+			}
+		],
+		"summary": [
+			{
+				"credit_bureau_id": 2,
+				"total_accounts": "9",
+				"open_accounts": "1",
+				"closed_accounts": "8",
+				"collection": null,
+				"delinquent": "1",
+				"derogatory": "4",
+				"balances": "69058",
+				"payments": "1305",
+				"public_records": "0",
+				"inquiries": "4",
+				"type": 2,
+				"credit_reporting_agency": {
+					"id": 2,
+					"name": "Equifax",
+					"checkbox": 0,
+					"selected_address": 6,
+					"type": 0
+				}
+			},
+			{
+				"credit_bureau_id": 3,
+				"total_accounts": "9",
+				"open_accounts": "1",
+				"closed_accounts": "8",
+				"collection": null,
+				"delinquent": "2",
+				"derogatory": "4",
+				"balances": "69048",
+				"payments": "588",
+				"public_records": "0",
+				"inquiries": "5",
+				"type": 2,
+				"credit_reporting_agency": {
+					"id": 3,
+					"name": "Experian",
+					"checkbox": 0,
+					"selected_address": 14,
+					"type": 0
+				}
+			},
+			{
+				"credit_bureau_id": 1,
+				"total_accounts": "9",
+				"open_accounts": "1",
+				"closed_accounts": "8",
+				"collection": null,
+				"delinquent": "2",
+				"derogatory": "4",
+				"balances": "69048",
+				"payments": "1305",
+				"public_records": "0",
+				"inquiries": "1",
+				"type": 2,
+				"credit_reporting_agency": {
+					"id": 1,
+					"name": "TransUnion",
+					"checkbox": 0,
+					"selected_address": 101,
+					"type": 0
+				}
+			}
+		],
+		"personalInformation": [
+			{
+				"credit_bureau_id": 2,
+				"name": null,
+				"dob": null,
+				"aka_name": null,
+				"former": "-",
+				"current_addresses": null,
+				"previous_addresses": null,
+				"employers": null,
+				"type": "2",
+				"credit_reporting_agency": {
+					"id": 2,
+					"name": "Equifax",
+					"checkbox": 0,
+					"selected_address": 6,
+					"type": 0
+				}
+			},
+			{
+				"credit_bureau_id": 3,
+				"name": null,
+				"dob": null,
+				"aka_name": null,
+				"former": "-",
+				"current_addresses": null,
+				"previous_addresses": null,
+				"employers": null,
+				"type": "2",
+				"credit_reporting_agency": {
+					"id": 3,
+					"name": "Experian",
+					"checkbox": 0,
+					"selected_address": 14,
+					"type": 0
+				}
+			},
+			{
+				"credit_bureau_id": 1,
+				"name": null,
+				"dob": null,
+				"aka_name": null,
+				"former": "-",
+				"current_addresses": null,
+				"previous_addresses": null,
+				"employers": null,
+				"type": "2",
+				"credit_reporting_agency": {
+					"id": 1,
+					"name": "TransUnion",
+					"checkbox": 0,
+					"selected_address": 101,
+					"type": 0
+				}
+			}
+		],
+		"accountHistories": [
+			{
+				"id": 112469,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "CAF",
+				"account_number": "38261629",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Individual",
+				"account_status": "Closed",
+				"monthly_payment": "--",
+				"date_opened": "2020-11-01",
+				"balance": "--",
+				"number_of_months": "72",
+				"high_credit": "36465",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2022-09-28",
+				"comments": "-",
+				"date_last_active": "2022-09-28",
+				"date_last_payment": "2022-09-28",
+				"payment_history": {
+					"status": "CCCCCCCCCCCCCCCCCCCCC",
+					"startDate": "2022-08-28",
+					"MonthlyPayStatus": [
+						{
+							"date": "2022-08-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-07-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-06-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-05-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-04-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-03-28",
+							"status": "C"
+						},
+						{
+							"date": "2022-02-27",
+							"status": "C"
+						},
+						{
+							"date": "2022-01-27",
+							"status": "C"
+						},
+						{
+							"date": "2021-12-27",
+							"status": "C"
+						},
+						{
+							"date": "2021-11-27",
+							"status": "C"
+						},
+						{
+							"date": "2021-10-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-28",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-27",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-27",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-27",
+							"status": "C"
+						},
+						{
+							"date": "2020-11-27",
+							"status": " "
+						},
+						{
+							"date": "2020-10-28",
+							"status": " "
+						},
+						{
+							"date": "2020-09-28",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:52.000000Z",
+				"updated_at": "2024-12-21T10:37:53.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAF (38261629)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112470,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "CARMAX AUTO FINANCE",
+				"account_number": "38261629",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2020-11-01",
+				"balance": "--",
+				"number_of_months": "72",
+				"high_credit": "36465",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2022-10-10",
+				"comments": "-",
+				"date_last_active": "2022-10-01",
+				"date_last_payment": "2022-09-28",
+				"payment_history": {
+					"status": "UCCCCCCCCCCCCCCCCCCCCCCC",
+					"startDate": "2022-10-10",
+					"MonthlyPayStatus": [
+						{
+							"date": "2022-10-10",
+							"status": "U"
+						},
+						{
+							"date": "2022-09-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-08-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-07-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-06-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-05-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-04-10",
+							"status": "C"
+						},
+						{
+							"date": "2022-03-09",
+							"status": "C"
+						},
+						{
+							"date": "2022-02-09",
+							"status": "C"
+						},
+						{
+							"date": "2022-01-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-12-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-11-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-10-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-10",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-09",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-09",
+							"status": "C"
+						},
+						{
+							"date": "2020-11-09",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:53.000000Z",
+				"updated_at": "2024-12-21T10:37:54.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CARMAX AUTO FINANCE (38261629)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48919,
+						"creditor_name": "CARMAX AUTO FINANCE",
+						"address": "225 CHASTAIN MEADOWS COURT\nKENNESAW, GA 30144",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112470,
+							"credit_contact_id": 48919,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48930,
+						"creditor_name": "CARMAX AUTO FINANCE",
+						"address": "12800 TUCKAHOE CREEK PKW\nRICHMOND, VA 23238",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112470,
+							"credit_contact_id": 48930,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112471,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "CARMAXFIN",
+				"account_number": "38261629",
+				"account_type": "--",
+				"account_detail": "Installment Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2020-11-01",
+				"balance": "--",
+				"number_of_months": "72",
+				"high_credit": "36465",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2024-11-01",
+				"comments": "Consumer disputes after resolution",
+				"date_last_active": "2022-09-01",
+				"date_last_payment": "2022-09-01",
+				"payment_history": {
+					"status": "UUUUUUUUUUUUUUUUUUUUUUUU",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:54.000000Z",
+				"updated_at": "2024-12-21T10:37:54.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CARMAXFIN (38261629)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112472,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "CAPITAL ONE",
+				"account_number": "517805767848",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-06-02",
+				"balance": "3755",
+				"number_of_months": "--",
+				"high_credit": "3755",
+				"credit_limit": "3000",
+				"past_due": "3755",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Unknown",
+				"last_reported": "2024-12-08",
+				"comments": "Charged off as bad debt",
+				"date_last_active": "2024-11-23",
+				"date_last_payment": "2024-04-22",
+				"payment_history": "",
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:55.000000Z",
+				"updated_at": "2024-12-21T10:37:55.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAPITAL ONE (517805767848)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48922,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112472,
+							"credit_contact_id": 48922,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48931,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112472,
+							"credit_contact_id": 48931,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112473,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "CAPITAL ONE",
+				"account_number": "517805767848",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-06-01",
+				"balance": "3755",
+				"number_of_months": "--",
+				"high_credit": "--",
+				"credit_limit": "3000",
+				"past_due": "3755",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-12-08",
+				"comments": "Account was in dispute - now resolved - reported by subscriber.",
+				"date_last_active": "2024-11-01",
+				"date_last_payment": "2024-04-22",
+				"payment_history": {
+					"status": "9954321CC1CCCC1CC1CCCCCC1",
+					"startDate": "2024-12-08",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-08",
+							"status": "9"
+						},
+						{
+							"date": "2024-11-08",
+							"status": "9"
+						},
+						{
+							"date": "2024-10-08",
+							"status": "5"
+						},
+						{
+							"date": "2024-09-08",
+							"status": "4"
+						},
+						{
+							"date": "2024-08-08",
+							"status": "3"
+						},
+						{
+							"date": "2024-07-08",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-08",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-08",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-08",
+							"status": "C"
+						},
+						{
+							"date": "2024-03-08",
+							"status": "1"
+						},
+						{
+							"date": "2024-02-08",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-08",
+							"status": "1"
+						},
+						{
+							"date": "2023-09-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-07-08",
+							"status": "1"
+						},
+						{
+							"date": "2023-06-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-08",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-08",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-08",
+							"status": "1"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:56.000000Z",
+				"updated_at": "2024-12-21T10:37:56.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAPITAL ONE (517805767848)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48922,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112473,
+							"credit_contact_id": 48922,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48931,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112473,
+							"credit_contact_id": 48931,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112474,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "CAP ONE",
+				"account_number": "517805767848",
+				"account_type": "--",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-06-01",
+				"balance": "3755",
+				"number_of_months": "--",
+				"high_credit": "3755",
+				"credit_limit": "--",
+				"past_due": "3755",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-11-01",
+				"comments": "Account previously in dispute - now resolved by data furnisher",
+				"date_last_active": "2024-06-01",
+				"date_last_payment": "2024-06-01",
+				"payment_history": {
+					"status": "U44321UU1UUUU1UU1UUUUUU1",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "3"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "1"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "1"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "1"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "1"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:57.000000Z",
+				"updated_at": "2024-12-21T10:37:57.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAP ONE (517805767848)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112475,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "WFBNA CARD",
+				"account_number": "442644130188",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2019-06-19",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "1334",
+				"credit_limit": "1000",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Late 60 Days",
+				"last_reported": "2023-03-26",
+				"comments": "-",
+				"date_last_active": "2023-03-25",
+				"date_last_payment": "2023-03-25",
+				"payment_history": {
+					"status": "C21CCCCCCCCCCCC1CCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+					"startDate": "2023-02-26",
+					"MonthlyPayStatus": [
+						{
+							"date": "2023-02-26",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-26",
+							"status": "2"
+						},
+						{
+							"date": "2022-12-26",
+							"status": "1"
+						},
+						{
+							"date": "2022-11-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-10-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-09-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-08-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-07-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-06-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-05-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-04-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-03-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-02-26",
+							"status": "C"
+						},
+						{
+							"date": "2022-01-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-12-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-11-26",
+							"status": "1"
+						},
+						{
+							"date": "2021-10-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-26",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-11-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-10-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-09-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-08-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-07-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-06-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-05-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-04-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-03-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-02-26",
+							"status": "C"
+						},
+						{
+							"date": "2020-01-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-12-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-11-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-10-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-09-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-08-26",
+							"status": "C"
+						},
+						{
+							"date": "2019-07-26",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:57.000000Z",
+				"updated_at": "2024-12-21T10:37:58.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "WFBNA CARD (442644130188)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48924,
+						"creditor_name": "WFBNA CARD",
+						"address": "PO BOX 393\nMINNEAPOLIS, MN 55480",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112475,
+							"credit_contact_id": 48924,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112476,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "WFBNA CARD",
+				"account_number": "4426441301",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2019-06-01",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "1334",
+				"credit_limit": "1000",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Late 60 Days",
+				"last_reported": "2023-04-02",
+				"comments": "-",
+				"date_last_active": "2023-04-01",
+				"date_last_payment": "2023-03-25",
+				"payment_history": {
+					"status": "UCC21CCCCCCCCCCC1CCCCCCCC",
+					"startDate": "2023-04-02",
+					"MonthlyPayStatus": [
+						{
+							"date": "2023-04-02",
+							"status": "U"
+						},
+						{
+							"date": "2023-03-01",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-01",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-01",
+							"status": "2"
+						},
+						{
+							"date": "2022-12-01",
+							"status": "1"
+						},
+						{
+							"date": "2022-11-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-10-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-09-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-08-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-07-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-06-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-05-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-04-02",
+							"status": "C"
+						},
+						{
+							"date": "2022-03-01",
+							"status": "C"
+						},
+						{
+							"date": "2022-02-01",
+							"status": "C"
+						},
+						{
+							"date": "2022-01-01",
+							"status": "C"
+						},
+						{
+							"date": "2021-12-01",
+							"status": "1"
+						},
+						{
+							"date": "2021-11-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-10-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-02",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-02",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:58.000000Z",
+				"updated_at": "2024-12-21T10:37:59.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "WFBNA CARD (4426441301)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48924,
+						"creditor_name": "WFBNA CARD",
+						"address": "PO BOX 393\nMINNEAPOLIS, MN 55480",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112476,
+							"credit_contact_id": 48924,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112477,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "WFBNA CARD",
+				"account_number": "4426441301880898",
+				"account_type": "--",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2019-06-01",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "1000",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Late 60 Days",
+				"last_reported": "2024-11-01",
+				"comments": "Closed or paid account/zero balance",
+				"date_last_active": "2023-03-01",
+				"date_last_payment": "2023-03-01",
+				"payment_history": {
+					"status": "UUUUUUUUUUUUUUUUUUUUUU21",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "2"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "1"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:59.000000Z",
+				"updated_at": "2024-12-21T10:38:00.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "WFBNA CARD (4426441301880898)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48924,
+						"creditor_name": "WFBNA CARD",
+						"address": "PO BOX 393\nMINNEAPOLIS, MN 55480",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112477,
+							"credit_contact_id": 48924,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112478,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "CREDITONEBNK",
+				"account_number": "4447962548476575",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-05-17",
+				"balance": "1050",
+				"number_of_months": "--",
+				"high_credit": "1050",
+				"credit_limit": "600",
+				"past_due": "1050",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Unknown",
+				"last_reported": "2024-12-03",
+				"comments": "Charged off as bad debt",
+				"date_last_active": "2024-09-02",
+				"date_last_payment": "2024-04-22",
+				"payment_history": "",
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:00.000000Z",
+				"updated_at": "2024-12-21T10:38:00.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CREDITONEBNK (4447962548476575)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112479,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "CREDIT ONE BANK NA",
+				"account_number": "4447962548476575",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-05-01",
+				"balance": "1050",
+				"number_of_months": "--",
+				"high_credit": "--",
+				"credit_limit": "600",
+				"past_due": "1050",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-12-03",
+				"comments": "-",
+				"date_last_active": "2024-12-01",
+				"date_last_payment": "2024-04-22",
+				"payment_history": {
+					"status": "954321CC1CC1CCCCCCCCCCCCC",
+					"startDate": "2024-12-03",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-03",
+							"status": "9"
+						},
+						{
+							"date": "2024-11-03",
+							"status": "5"
+						},
+						{
+							"date": "2024-10-03",
+							"status": "4"
+						},
+						{
+							"date": "2024-09-03",
+							"status": "3"
+						},
+						{
+							"date": "2024-08-03",
+							"status": "2"
+						},
+						{
+							"date": "2024-07-03",
+							"status": "1"
+						},
+						{
+							"date": "2024-06-03",
+							"status": "C"
+						},
+						{
+							"date": "2024-05-03",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-03",
+							"status": "1"
+						},
+						{
+							"date": "2024-03-03",
+							"status": "C"
+						},
+						{
+							"date": "2024-02-03",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-03",
+							"status": "1"
+						},
+						{
+							"date": "2023-12-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-09-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-07-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-06-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-03",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-03",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-03",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:01.000000Z",
+				"updated_at": "2024-12-21T10:38:01.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CREDIT ONE BANK NA (4447962548476575)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48929,
+						"creditor_name": "CREDIT ONE BANK NA",
+						"address": "PO BOX 98875\nLAS VEGAS, NV 89193",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112479,
+							"credit_contact_id": 48929,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112480,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "CRDTONEBNK",
+				"account_number": "4447962548476575",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2021-05-01",
+				"balance": "1050",
+				"number_of_months": "--",
+				"high_credit": "1050",
+				"credit_limit": "--",
+				"past_due": "1050",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-12-01",
+				"comments": "Charged off account",
+				"date_last_active": "2024-06-01",
+				"date_last_payment": "2024-06-01",
+				"payment_history": {
+					"status": "444321UU1UU1UUUUUUUUUUUU",
+					"startDate": "2024-11-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-11-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-10-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "3"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "1"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "1"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:02.000000Z",
+				"updated_at": "2024-12-21T10:38:02.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CRDTONEBNK (4447962548476575)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112481,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "CAPITAL ONE",
+				"account_number": "517805760575",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Closed",
+				"monthly_payment": "25",
+				"date_opened": "2020-08-07",
+				"balance": "251",
+				"number_of_months": "--",
+				"high_credit": "337",
+				"credit_limit": "200",
+				"past_due": "180",
+				"payment_status": "Late 120 Days",
+				"late_status": "Late 120 Days",
+				"last_reported": "2024-12-11",
+				"comments": "-",
+				"date_last_active": "2024-09-24",
+				"date_last_payment": "2024-04-22",
+				"payment_history": {
+					"status": "4321CC21CCCCCCCCCCCCC1CCCCCCCCCCCCCCCCCCCCCCCCCC",
+					"startDate": "2024-11-11",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-11-11",
+							"status": "4"
+						},
+						{
+							"date": "2024-10-11",
+							"status": "3"
+						},
+						{
+							"date": "2024-09-11",
+							"status": "2"
+						},
+						{
+							"date": "2024-08-11",
+							"status": "1"
+						},
+						{
+							"date": "2024-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-05-11",
+							"status": "2"
+						},
+						{
+							"date": "2024-04-11",
+							"status": "1"
+						},
+						{
+							"date": "2024-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-02-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-09-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-11",
+							"status": "1"
+						},
+						{
+							"date": "2023-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-11-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-10-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-09-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-08-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-05-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-04-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-02-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-12-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-11-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-10-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-11",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-11",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:03.000000Z",
+				"updated_at": "2024-12-21T10:38:03.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAPITAL ONE (517805760575)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48922,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112481,
+							"credit_contact_id": 48922,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48931,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112481,
+							"credit_contact_id": 48931,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112482,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "CAPITAL ONE",
+				"account_number": "517805760575",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Closed",
+				"monthly_payment": "25",
+				"date_opened": "2020-08-01",
+				"balance": "251",
+				"number_of_months": "--",
+				"high_credit": "337",
+				"credit_limit": "200",
+				"past_due": "180",
+				"payment_status": "Late 150 Days",
+				"late_status": "Late 150 Days",
+				"last_reported": "2024-12-11",
+				"comments": "-",
+				"date_last_active": "2024-12-01",
+				"date_last_payment": "2024-04-22",
+				"payment_history": {
+					"status": "54321CC21CCCCCCCCCCCCC1CC",
+					"startDate": "2024-12-11",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-11",
+							"status": "5"
+						},
+						{
+							"date": "2024-11-11",
+							"status": "4"
+						},
+						{
+							"date": "2024-10-11",
+							"status": "3"
+						},
+						{
+							"date": "2024-09-11",
+							"status": "2"
+						},
+						{
+							"date": "2024-08-11",
+							"status": "1"
+						},
+						{
+							"date": "2024-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-05-11",
+							"status": "2"
+						},
+						{
+							"date": "2024-04-11",
+							"status": "1"
+						},
+						{
+							"date": "2024-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-02-11",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-09-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-07-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-06-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-11",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-11",
+							"status": "1"
+						},
+						{
+							"date": "2023-01-11",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-11",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:03.000000Z",
+				"updated_at": "2024-12-21T10:38:04.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAPITAL ONE (517805760575)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48922,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112482,
+							"credit_contact_id": 48922,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48931,
+						"creditor_name": "CAPITAL ONE",
+						"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112482,
+							"credit_contact_id": 48931,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112483,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "CAP ONE",
+				"account_number": "517805760575",
+				"account_type": "--",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Closed",
+				"monthly_payment": "25",
+				"date_opened": "2020-08-01",
+				"balance": "251",
+				"number_of_months": "--",
+				"high_credit": "200",
+				"credit_limit": "--",
+				"past_due": "180",
+				"payment_status": "Late 120 Days",
+				"late_status": "Late 120 Days",
+				"last_reported": "2024-12-01",
+				"comments": "Account previously in dispute - now resolved by data furnisher",
+				"date_last_active": "2024-07-01",
+				"date_last_payment": "2024-07-01",
+				"payment_history": {
+					"status": "4321UU21UUUUUUUUUUUUU1UU",
+					"startDate": "2024-11-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-11-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-10-01",
+							"status": "3"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "1"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:04.000000Z",
+				"updated_at": "2024-12-21T10:38:05.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CAP ONE (517805760575)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112484,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "GS BANK USA",
+				"account_number": "1100",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2020-12-05",
+				"balance": "679",
+				"number_of_months": "--",
+				"high_credit": "707",
+				"credit_limit": "600",
+				"past_due": "679",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Unknown",
+				"last_reported": "2024-12-17",
+				"comments": "Charged off as bad debt",
+				"date_last_active": "2024-11-30",
+				"date_last_payment": "2024-04-21",
+				"payment_history": "",
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:05.000000Z",
+				"updated_at": "2024-12-21T10:38:06.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "GS BANK USA (1100)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48933,
+						"creditor_name": "APPLE CARD/GS BANK USA",
+						"address": "LOCKBOX 6112 PO BOX 7247\nPHILADELPHIA, PA 19170",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112484,
+							"credit_contact_id": 48933,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48921,
+						"creditor_name": "APPLE CARD - GS BANK USA",
+						"address": "LOCKBOX 6112 P.O. BOX 7247\nPHILADELPHIA, PA 19170",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112484,
+							"credit_contact_id": 48921,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112485,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "APPLE CARD/GS BANK USA",
+				"account_number": "1100011162004091",
+				"account_type": "Credit Card",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2020-12-01",
+				"balance": "679",
+				"number_of_months": "--",
+				"high_credit": "--",
+				"credit_limit": "600",
+				"past_due": "679",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-12-17",
+				"comments": "-",
+				"date_last_active": "2024-11-01",
+				"date_last_payment": "2024-04-21",
+				"payment_history": {
+					"status": "9954321CC1CC1CCCCCCCCCCC1",
+					"startDate": "2024-12-17",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-17",
+							"status": "9"
+						},
+						{
+							"date": "2024-11-17",
+							"status": "9"
+						},
+						{
+							"date": "2024-10-17",
+							"status": "5"
+						},
+						{
+							"date": "2024-09-17",
+							"status": "4"
+						},
+						{
+							"date": "2024-08-17",
+							"status": "3"
+						},
+						{
+							"date": "2024-07-17",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-17",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-17",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-17",
+							"status": "C"
+						},
+						{
+							"date": "2024-03-17",
+							"status": "1"
+						},
+						{
+							"date": "2024-02-17",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-17",
+							"status": "1"
+						},
+						{
+							"date": "2023-11-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-09-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-07-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-06-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-17",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-17",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-17",
+							"status": "1"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:06.000000Z",
+				"updated_at": "2024-12-21T10:38:07.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "APPLE CARD/GS BANK USA (1100011162004091)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48933,
+						"creditor_name": "APPLE CARD/GS BANK USA",
+						"address": "LOCKBOX 6112 PO BOX 7247\nPHILADELPHIA, PA 19170",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112485,
+							"credit_contact_id": 48933,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112486,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "GS BANKUSA",
+				"account_number": "1100011162004091",
+				"account_type": "--",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2020-12-01",
+				"balance": "679",
+				"number_of_months": "--",
+				"high_credit": "679",
+				"credit_limit": "--",
+				"past_due": "679",
+				"payment_status": "Collection/Chargeoff",
+				"late_status": "Collection/Chargeoff",
+				"last_reported": "2024-11-01",
+				"comments": "Charged off account",
+				"date_last_active": "2024-06-01",
+				"date_last_payment": "2024-06-01",
+				"payment_history": {
+					"status": "44321UU1UU1UUUUUUUUUUU1U",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "4"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "3"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "1"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "1"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "1"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:07.000000Z",
+				"updated_at": "2024-12-21T10:38:08.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "GS BANKUSA (1100011162004091)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48933,
+						"creditor_name": "APPLE CARD/GS BANK USA",
+						"address": "LOCKBOX 6112 PO BOX 7247\nPHILADELPHIA, PA 19170",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112486,
+							"credit_contact_id": 48933,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48921,
+						"creditor_name": "APPLE CARD - GS BANK USA",
+						"address": "LOCKBOX 6112 P.O. BOX 7247\nPHILADELPHIA, PA 19170",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112486,
+							"credit_contact_id": 48921,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112487,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "SYNCB/RMSTGO",
+				"account_number": "6019191274304263",
+				"account_type": "Charge account",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2020-07-20",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "987",
+				"credit_limit": "250",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2022-01-19",
+				"comments": "-",
+				"date_last_active": "2020-10-12",
+				"date_last_payment": "2020-10-12",
+				"payment_history": {
+					"status": "CCCCCCCCCCCCCCCCC",
+					"startDate": "2021-12-19",
+					"MonthlyPayStatus": [
+						{
+							"date": "2021-12-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-11-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-10-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-09-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-08-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-07-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-06-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-19",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-11-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-10-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-09-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-08-19",
+							"status": "C"
+						},
+						{
+							"date": "2020-07-19",
+							"status": " "
+						},
+						{
+							"date": "2020-06-19",
+							"status": " "
+						},
+						{
+							"date": "2020-05-19",
+							"status": " "
+						},
+						{
+							"date": "2020-04-19",
+							"status": " "
+						},
+						{
+							"date": "2020-03-19",
+							"status": " "
+						},
+						{
+							"date": "2020-02-19",
+							"status": " "
+						},
+						{
+							"date": "2020-01-19",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:08.000000Z",
+				"updated_at": "2024-12-21T10:38:09.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "SYNCB/RMSTGO (6019191274304263)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112488,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "SYNCB/ROOMS TO GO",
+				"account_number": "601919127430",
+				"account_type": "Charge account",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2020-07-01",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "987",
+				"credit_limit": "250",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2021-07-09",
+				"comments": "-",
+				"date_last_active": "2021-07-01",
+				"date_last_payment": "2020-10-12",
+				"payment_history": {
+					"status": "UCCCCCCCCCCC",
+					"startDate": "2021-07-09",
+					"MonthlyPayStatus": [
+						{
+							"date": "2021-07-09",
+							"status": "U"
+						},
+						{
+							"date": "2021-06-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-05-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-04-09",
+							"status": "C"
+						},
+						{
+							"date": "2021-03-08",
+							"status": "C"
+						},
+						{
+							"date": "2021-02-08",
+							"status": "C"
+						},
+						{
+							"date": "2021-01-08",
+							"status": "C"
+						},
+						{
+							"date": "2020-12-08",
+							"status": "C"
+						},
+						{
+							"date": "2020-11-08",
+							"status": "C"
+						},
+						{
+							"date": "2020-10-09",
+							"status": "C"
+						},
+						{
+							"date": "2020-09-09",
+							"status": "C"
+						},
+						{
+							"date": "2020-08-09",
+							"status": "C"
+						},
+						{
+							"date": "2020-07-09",
+							"status": " "
+						},
+						{
+							"date": "2020-06-09",
+							"status": " "
+						},
+						{
+							"date": "2020-05-09",
+							"status": " "
+						},
+						{
+							"date": "2020-04-09",
+							"status": " "
+						},
+						{
+							"date": "2020-03-09",
+							"status": " "
+						},
+						{
+							"date": "2020-02-08",
+							"status": " "
+						},
+						{
+							"date": "2020-01-08",
+							"status": " "
+						},
+						{
+							"date": "2019-12-08",
+							"status": " "
+						},
+						{
+							"date": "2019-11-08",
+							"status": " "
+						},
+						{
+							"date": "2019-10-09",
+							"status": " "
+						},
+						{
+							"date": "2019-09-09",
+							"status": " "
+						},
+						{
+							"date": "2019-08-09",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:09.000000Z",
+				"updated_at": "2024-12-21T10:38:10.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "SYNCB/ROOMS TO GO (601919127430)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48916,
+						"creditor_name": "SYNCB/ROOMS TO GO",
+						"address": "PO BOX 71757\nPHILADELPHIA, PA 19176",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112488,
+							"credit_contact_id": 48916,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48925,
+						"creditor_name": "SYNCB/ROOMS TO GO",
+						"address": "PO BOX 71727\nPHILADELPHIA, PA 19176",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112488,
+							"credit_contact_id": 48925,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112489,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "SYNCB/RM2G",
+				"account_number": "601919127430",
+				"account_type": "--",
+				"account_detail": "Revolving Account",
+				"bureau_code": "Individual",
+				"account_status": "Paid",
+				"monthly_payment": "--",
+				"date_opened": "2020-07-01",
+				"balance": "--",
+				"number_of_months": "--",
+				"high_credit": "250",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Current",
+				"last_reported": "2024-11-01",
+				"comments": "Account closed at consumer's request",
+				"date_last_active": "2020-10-01",
+				"date_last_payment": "2020-10-01",
+				"payment_history": {
+					"status": "UUUUUUUUUUUUUUUUUUUUUUUU",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:10.000000Z",
+				"updated_at": "2024-12-21T10:38:10.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "SYNCB/RM2G (601919127430)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112490,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "AM HONDA FIN",
+				"account_number": "465049720",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Derogatory",
+				"monthly_payment": "717",
+				"date_opened": "2022-10-05",
+				"balance": "38512",
+				"number_of_months": "84",
+				"high_credit": "46468",
+				"credit_limit": "--",
+				"past_due": "38512",
+				"payment_status": "Repossession",
+				"late_status": "Unknown",
+				"last_reported": "2024-12-13",
+				"comments": "-",
+				"date_last_active": "2024-12-13",
+				"date_last_payment": "2024-09-19",
+				"payment_history": "",
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:11.000000Z",
+				"updated_at": "2024-12-21T10:38:11.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "AM HONDA FIN (465049720)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112491,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "AMERICAN HONDA FINANCE",
+				"account_number": "465049720",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Derogatory",
+				"monthly_payment": "--",
+				"date_opened": "2022-10-01",
+				"balance": "38512",
+				"number_of_months": "84",
+				"high_credit": "46468",
+				"credit_limit": "--",
+				"past_due": "38512",
+				"payment_status": "Repossession",
+				"late_status": "Repossession/Foreclosure",
+				"last_reported": "2024-12-13",
+				"comments": "-",
+				"date_last_active": "2024-11-01",
+				"date_last_payment": "2024-09-19",
+				"payment_history": {
+					"status": "8821221C11CCCCCC1CCCCCCCC",
+					"startDate": "2024-12-13",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-13",
+							"status": "8"
+						},
+						{
+							"date": "2024-11-13",
+							"status": "8"
+						},
+						{
+							"date": "2024-10-13",
+							"status": "2"
+						},
+						{
+							"date": "2024-09-13",
+							"status": "1"
+						},
+						{
+							"date": "2024-08-13",
+							"status": "2"
+						},
+						{
+							"date": "2024-07-13",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-13",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-13",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-13",
+							"status": "1"
+						},
+						{
+							"date": "2024-03-13",
+							"status": "1"
+						},
+						{
+							"date": "2024-02-13",
+							"status": "C"
+						},
+						{
+							"date": "2024-01-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-09-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-08-13",
+							"status": "1"
+						},
+						{
+							"date": "2023-07-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-06-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-05-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-04-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-03-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-02-13",
+							"status": "C"
+						},
+						{
+							"date": "2023-01-13",
+							"status": "C"
+						},
+						{
+							"date": "2022-12-13",
+							"status": "C"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:12.000000Z",
+				"updated_at": "2024-12-21T10:38:12.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "AMERICAN HONDA FINANCE (465049720)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48920,
+						"creditor_name": "AMERICAN HONDA FINANCE",
+						"address": "PO BOX 168128\nIRVING, TX 75016",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112491,
+							"credit_contact_id": 48920,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					},
+					{
+						"id": 48934,
+						"creditor_name": "AMERICAN HONDA FINANCE",
+						"address": "PO BOX 1027\nALPHARETTA, GA 30009",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112491,
+							"credit_contact_id": 48934,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112492,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "AHF",
+				"account_number": "465049720",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Derogatory",
+				"monthly_payment": "717",
+				"date_opened": "2022-10-01",
+				"balance": "38512",
+				"number_of_months": "--",
+				"high_credit": "46468",
+				"credit_limit": "--",
+				"past_due": "38512",
+				"payment_status": "Repossession",
+				"late_status": "Repossession",
+				"last_reported": "2024-11-01",
+				"comments": "Involuntary Repossession",
+				"date_last_active": "2024-06-01",
+				"date_last_payment": "2024-06-01",
+				"payment_history": {
+					"status": "U21221U11UUUUUU1UUUUUUUU",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "2"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "1"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "1"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-08-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-07-01",
+							"status": "1"
+						},
+						{
+							"date": "2023-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-05-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-02-28",
+							"status": "U"
+						},
+						{
+							"date": "2023-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-12-31",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2022-11-01",
+							"status": "U"
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:13.000000Z",
+				"updated_at": "2024-12-21T10:38:13.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "AHF (465049720)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112493,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 1,
+				"furnisher_name": "CIG FINCL",
+				"account_number": "2847612",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Open",
+				"monthly_payment": "563",
+				"date_opened": "2023-10-07",
+				"balance": "24801",
+				"number_of_months": "72",
+				"high_credit": "26465",
+				"credit_limit": "--",
+				"past_due": "431",
+				"payment_status": "Late 30 Days",
+				"late_status": "Late 30 Days",
+				"last_reported": "2024-12-10",
+				"comments": "-",
+				"date_last_active": "2024-12-10",
+				"date_last_payment": "2024-12-10",
+				"payment_history": {
+					"status": "1C1CC1CCC1CCC",
+					"startDate": "2024-11-10",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-11-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-10-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-09-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-08-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-07-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-06-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-03-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-02-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-01-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-10",
+							"status": " "
+						},
+						{
+							"date": "2023-09-10",
+							"status": " "
+						},
+						{
+							"date": "2023-08-10",
+							"status": " "
+						},
+						{
+							"date": "2023-07-10",
+							"status": " "
+						},
+						{
+							"date": "2023-06-10",
+							"status": " "
+						},
+						{
+							"date": "2023-05-10",
+							"status": " "
+						},
+						{
+							"date": "2023-04-10",
+							"status": " "
+						},
+						{
+							"date": "2023-03-10",
+							"status": " "
+						},
+						{
+							"date": "2023-02-10",
+							"status": " "
+						},
+						{
+							"date": "2023-01-10",
+							"status": " "
+						},
+						{
+							"date": "2022-12-10",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:14.000000Z",
+				"updated_at": "2024-12-21T10:38:14.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "CIG FINCL (2847612)",
+				"class_type": "account_history",
+				"credit_contact": []
+			},
+			{
+				"id": 112494,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 3,
+				"furnisher_name": "AUTONATION FINANCE",
+				"account_number": "2847612",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Open",
+				"monthly_payment": "563",
+				"date_opened": "2023-10-01",
+				"balance": "24801",
+				"number_of_months": "72",
+				"high_credit": "26465",
+				"credit_limit": "--",
+				"past_due": "431",
+				"payment_status": "Late 30 Days",
+				"late_status": "Late 30 Days",
+				"last_reported": "2024-12-10",
+				"comments": "-",
+				"date_last_active": "2024-11-01",
+				"date_last_payment": "2024-12-10",
+				"payment_history": {
+					"status": "11C1CC1CCC1CCC",
+					"startDate": "2024-12-10",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-12-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-11-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-10-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-09-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-08-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-07-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-06-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-05-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-04-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-03-10",
+							"status": "C"
+						},
+						{
+							"date": "2024-02-10",
+							"status": "1"
+						},
+						{
+							"date": "2024-01-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-12-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-11-10",
+							"status": "C"
+						},
+						{
+							"date": "2023-10-10",
+							"status": " "
+						},
+						{
+							"date": "2023-09-10",
+							"status": " "
+						},
+						{
+							"date": "2023-08-10",
+							"status": " "
+						},
+						{
+							"date": "2023-07-10",
+							"status": " "
+						},
+						{
+							"date": "2023-06-10",
+							"status": " "
+						},
+						{
+							"date": "2023-05-10",
+							"status": " "
+						},
+						{
+							"date": "2023-04-10",
+							"status": " "
+						},
+						{
+							"date": "2023-03-10",
+							"status": " "
+						},
+						{
+							"date": "2023-02-10",
+							"status": " "
+						},
+						{
+							"date": "2023-01-10",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:15.000000Z",
+				"updated_at": "2024-12-21T10:38:15.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "AUTONATION FINANCE (2847612)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48932,
+						"creditor_name": "AUTONATION FINANCE",
+						"address": "PO BOX 19795\nIRVINE, CA 92623",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112494,
+							"credit_contact_id": 48932,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			},
+			{
+				"id": 112495,
+				"account_unique_id": null,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"credit_bureau_id": 2,
+				"furnisher_name": "AUTONATION",
+				"account_number": "2847612",
+				"account_type": "Auto Loan",
+				"account_detail": "Installment Account",
+				"bureau_code": "Joint",
+				"account_status": "Open",
+				"monthly_payment": "563",
+				"date_opened": "2023-10-01",
+				"balance": "24811",
+				"number_of_months": "--",
+				"high_credit": "26465",
+				"credit_limit": "--",
+				"past_due": "--",
+				"payment_status": "Current",
+				"late_status": "Late 30 Days",
+				"last_reported": "2024-11-01",
+				"comments": "Consumer disputes this account information",
+				"date_last_active": "2024-11-01",
+				"date_last_payment": "2024-11-01",
+				"payment_history": {
+					"status": "1U1UU1UUU1UUU",
+					"startDate": "2024-10-01",
+					"MonthlyPayStatus": [
+						{
+							"date": "2024-10-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-09-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-08-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-07-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-06-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-05-01",
+							"status": "1"
+						},
+						{
+							"date": "2024-04-01",
+							"status": "U"
+						},
+						{
+							"date": "2024-02-29",
+							"status": "U"
+						},
+						{
+							"date": "2024-01-31",
+							"status": "U"
+						},
+						{
+							"date": "2023-12-31",
+							"status": "1"
+						},
+						{
+							"date": "2023-11-30",
+							"status": "U"
+						},
+						{
+							"date": "2023-11-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-10-01",
+							"status": "U"
+						},
+						{
+							"date": "2023-09-01",
+							"status": " "
+						},
+						{
+							"date": "2023-08-01",
+							"status": " "
+						},
+						{
+							"date": "2023-07-01",
+							"status": " "
+						},
+						{
+							"date": "2023-06-01",
+							"status": " "
+						},
+						{
+							"date": "2023-05-01",
+							"status": " "
+						},
+						{
+							"date": "2023-04-01",
+							"status": " "
+						},
+						{
+							"date": "2023-02-28",
+							"status": " "
+						},
+						{
+							"date": "2023-01-31",
+							"status": " "
+						},
+						{
+							"date": "2022-12-31",
+							"status": " "
+						},
+						{
+							"date": "2022-11-30",
+							"status": " "
+						},
+						{
+							"date": "2022-11-01",
+							"status": " "
+						}
+					]
+				},
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:38:15.000000Z",
+				"updated_at": "2024-12-21T10:38:16.000000Z",
+				"deleted_at": null,
+				"is_deleted": null,
+				"contacted": 0,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"text": "AUTONATION (2847612)",
+				"class_type": "account_history",
+				"credit_contact": [
+					{
+						"id": 48932,
+						"creditor_name": "AUTONATION FINANCE",
+						"address": "PO BOX 19795\nIRVINE, CA 92623",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 112495,
+							"credit_contact_id": 48932,
+							"creditor_type": "App\\Models\\AccountHistory"
+						}
+					}
+				]
+			}
+		],
+		"inquiries": [
+			{
+				"id": 17548,
+				"creditor_name": "ALLY FINANCIAL",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Experian",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48935,
+						"creditor_name": "ALLY FINANCIAL",
+						"address": "200 RENAISSANCE CTR\nDETROIT, MI 48243",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17548,
+							"credit_contact_id": 48935,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					},
+					{
+						"id": 48936,
+						"creditor_name": "ALLY FINANCIAL",
+						"address": "3010 W AGUA FRIA FWY STE\nPHOENIX, AZ 85027",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17548,
+							"credit_contact_id": 48936,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17549,
+				"creditor_name": "ALLY FINANCIAL",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Experian",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48935,
+						"creditor_name": "ALLY FINANCIAL",
+						"address": "200 RENAISSANCE CTR\nDETROIT, MI 48243",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17549,
+							"credit_contact_id": 48935,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					},
+					{
+						"id": 48936,
+						"creditor_name": "ALLY FINANCIAL",
+						"address": "3010 W AGUA FRIA FWY STE\nPHOENIX, AZ 85027",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17549,
+							"credit_contact_id": 48936,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17553,
+				"creditor_name": "AN #2125",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Equifax",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": []
+			},
+			{
+				"id": 17551,
+				"creditor_name": "AUTONATION",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Equifax",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": 112495,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": {
+					"id": 112495,
+					"credit_bureau_id": 2,
+					"furnisher_name": "AUTONATION",
+					"account_number": "2847612",
+					"account_type": "Auto Loan",
+					"account_detail": "Installment Account",
+					"account_status": "Open",
+					"late_status": "Late 30 Days",
+					"is_deleted": null,
+					"bureau_dispute_status": 1,
+					"creditor_dispute_status": 1,
+					"text": "AUTONATION (2847612)",
+					"class_type": "account_history"
+				},
+				"credit_contact": [
+					{
+						"id": 48932,
+						"creditor_name": "AUTONATION FINANCE",
+						"address": "PO BOX 19795\nIRVINE, CA 92623",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17551,
+							"credit_contact_id": 48932,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17547,
+				"creditor_name": "JPMCB AUTO",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Experian",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48928,
+						"creditor_name": "JPMCB AUTO",
+						"address": "PO BOX 901076\nFT WORTH, TX 76101",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17547,
+							"credit_contact_id": 48928,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17544,
+				"creditor_name": "REGIONALAC",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "TransUnion",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48915,
+						"creditor_name": "REGIONAL ACCEPTANCE",
+						"address": "1424 E FIRE TOWER\nGREENVILLE, NC 27858",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17544,
+							"credit_contact_id": 48915,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17546,
+				"creditor_name": "SANTANDER CONSUMER USA",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Experian",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48927,
+						"creditor_name": "SANTANDER CONSUMER USA",
+						"address": "8585 N STEMMOMS FWY\nDALLAS, TX 75247",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17546,
+							"credit_contact_id": 48927,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17552,
+				"creditor_name": "SE TOYO",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Equifax",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": []
+			},
+			{
+				"id": 17545,
+				"creditor_name": "SUNCOAST CREDIT UNION",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Experian",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": [
+					{
+						"id": 48926,
+						"creditor_name": "SUNCOAST CREDIT UNION",
+						"address": "6801 E HILLSBOROUGH AVE\nTAMPA, FL 33610",
+						"type": 2,
+						"pivot": {
+							"creditor_id": 17545,
+							"credit_contact_id": 48926,
+							"creditor_type": "App\\Models\\Inquiry"
+						}
+					}
+				]
+			},
+			{
+				"id": 17550,
+				"creditor_name": "WSTLAKENCM",
+				"type_of_business": "-",
+				"date_of_inquiry": "2023-10-07",
+				"credit_bureau": "Equifax",
+				"type": 2,
+				"is_deleted": null,
+				"account_history_id": null,
+				"bureau_dispute_status": 1,
+				"creditor_dispute_status": 1,
+				"class_type": "inquiries",
+				"account_history": null,
+				"credit_contact": []
+			}
+		],
+		"publicRecords": [],
+		"creditContacts": [
+			{
+				"id": 48936,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "ALLY FINANCIAL",
+				"address": "3010 W AGUA FRIA FWY STE\nPHOENIX, AZ 85027",
+				"address_line": "3010 W AGUA FRIA FWY STE",
+				"city": "PHOENIX",
+				"state": "AZ",
+				"zipcode": "85027",
+				"phone": "8664622770",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:51.000000Z",
+				"updated_at": "2024-12-21T10:37:51.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48935,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "ALLY FINANCIAL",
+				"address": "200 RENAISSANCE CTR\nDETROIT, MI 48243",
+				"address_line": "200 RENAISSANCE CTR",
+				"city": "DETROIT",
+				"state": "MI",
+				"zipcode": "48243",
+				"phone": "2482633004",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:51.000000Z",
+				"updated_at": "2024-12-21T10:37:51.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48934,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "AMERICAN HONDA FINANCE",
+				"address": "PO BOX 1027\nALPHARETTA, GA 30009",
+				"address_line": "PO BOX 1027",
+				"city": "ALPHARETTA",
+				"state": "GA",
+				"zipcode": "30009",
+				"phone": "",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:51.000000Z",
+				"updated_at": "2024-12-21T10:37:51.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48920,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "AMERICAN HONDA FINANCE",
+				"address": "PO BOX 168128\nIRVING, TX 75016",
+				"address_line": "PO BOX 168128",
+				"city": "IRVING",
+				"state": "TX",
+				"zipcode": "75016",
+				"phone": "8005435636",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:48.000000Z",
+				"updated_at": "2024-12-21T10:37:48.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48921,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "APPLE CARD - GS BANK USA",
+				"address": "LOCKBOX 6112 P.O. BOX 7247\nPHILADELPHIA, PA 19170",
+				"address_line": "LOCKBOX 6112 P.O. BOX 7247",
+				"city": "PHILADELPHIA",
+				"state": "PA",
+				"zipcode": "19170",
+				"phone": "8772555923",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:48.000000Z",
+				"updated_at": "2024-12-21T10:37:48.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48933,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "APPLE CARD/GS BANK USA",
+				"address": "LOCKBOX 6112 PO BOX 7247\nPHILADELPHIA, PA 19170",
+				"address_line": "LOCKBOX 6112 PO BOX 7247",
+				"city": "PHILADELPHIA",
+				"state": "PA",
+				"zipcode": "19170",
+				"phone": "8772555923",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:51.000000Z",
+				"updated_at": "2024-12-21T10:37:51.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48932,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "AUTONATION FINANCE",
+				"address": "PO BOX 19795\nIRVINE, CA 92623",
+				"address_line": "PO BOX 19795",
+				"city": "IRVINE",
+				"state": "CA",
+				"zipcode": "92623",
+				"phone": "9492507102",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:51.000000Z",
+				"updated_at": "2024-12-21T10:37:51.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48922,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CAPITAL ONE",
+				"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+				"address_line": "PO BOX 31293",
+				"city": "SALT LAKE CITY",
+				"state": "UT",
+				"zipcode": "84131",
+				"phone": "8009557070",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:48.000000Z",
+				"updated_at": "2024-12-21T10:37:48.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48931,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CAPITAL ONE",
+				"address": "PO BOX 31293\nSALT LAKE CITY, UT 84131",
+				"address_line": "PO BOX 31293",
+				"city": "SALT LAKE CITY",
+				"state": "UT",
+				"zipcode": "84131",
+				"phone": "8009557070",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:50.000000Z",
+				"updated_at": "2024-12-21T10:37:50.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48919,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CARMAX AUTO FINANCE",
+				"address": "225 CHASTAIN MEADOWS COURT\nKENNESAW, GA 30144",
+				"address_line": "225 CHASTAIN MEADOWS COURT",
+				"city": "KENNESAW",
+				"state": "GA",
+				"zipcode": "30144",
+				"phone": "8009253612",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:48.000000Z",
+				"updated_at": "2024-12-21T10:37:48.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48930,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CARMAX AUTO FINANCE",
+				"address": "12800 TUCKAHOE CREEK PKW\nRICHMOND, VA 23238",
+				"address_line": "12800 TUCKAHOE CREEK PKW",
+				"city": "RICHMOND",
+				"state": "VA",
+				"zipcode": "23238",
+				"phone": "8009253612",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:50.000000Z",
+				"updated_at": "2024-12-21T10:37:50.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48923,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CIG FINANCIAL",
+				"address": "18218 E MCDURMOTT SUITE A-1\nIRVINE, CA 92614",
+				"address_line": "18218 E MCDURMOTT SUITE A-1",
+				"city": "IRVINE",
+				"state": "CA",
+				"zipcode": "92614",
+				"phone": "9492507102",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:49.000000Z",
+				"updated_at": "2024-12-21T10:37:49.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48918,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CREDIT ONE BANK",
+				"address": "PO BOX 98872\nLAS VEGAS, NV 89193",
+				"address_line": "PO BOX 98872",
+				"city": "LAS VEGAS",
+				"state": "NV",
+				"zipcode": "89193",
+				"phone": "8778253242",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:48.000000Z",
+				"updated_at": "2024-12-21T10:37:48.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48929,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "CREDIT ONE BANK NA",
+				"address": "PO BOX 98875\nLAS VEGAS, NV 89193",
+				"address_line": "PO BOX 98875",
+				"city": "LAS VEGAS",
+				"state": "NV",
+				"zipcode": "89193",
+				"phone": "7022691000",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:50.000000Z",
+				"updated_at": "2024-12-21T10:37:50.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48928,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "JPMCB AUTO",
+				"address": "PO BOX 901076\nFT WORTH, TX 76101",
+				"address_line": "PO BOX 901076",
+				"city": "FT WORTH",
+				"state": "TX",
+				"zipcode": "76101",
+				"phone": "8003366675",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:50.000000Z",
+				"updated_at": "2024-12-21T10:37:50.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48915,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "REGIONAL ACCEPTANCE",
+				"address": "1424 E FIRE TOWER\nGREENVILLE, NC 27858",
+				"address_line": "1424 E FIRE TOWER",
+				"city": "GREENVILLE",
+				"state": "NC",
+				"zipcode": "27858",
+				"phone": "9197661388",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:46.000000Z",
+				"updated_at": "2024-12-21T10:37:46.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48927,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "SANTANDER CONSUMER USA",
+				"address": "8585 N STEMMOMS FWY\nDALLAS, TX 75247",
+				"address_line": "8585 N STEMMOMS FWY",
+				"city": "DALLAS",
+				"state": "TX",
+				"zipcode": "75247",
+				"phone": "8662224227",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:50.000000Z",
+				"updated_at": "2024-12-21T10:37:50.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48926,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "SUNCOAST CREDIT UNION",
+				"address": "6801 E HILLSBOROUGH AVE\nTAMPA, FL 33610",
+				"address_line": "6801 E HILLSBOROUGH AVE",
+				"city": "TAMPA",
+				"state": "FL",
+				"zipcode": "33610",
+				"phone": "8136217511",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:49.000000Z",
+				"updated_at": "2024-12-21T10:37:49.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48925,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "SYNCB/ROOMS TO GO",
+				"address": "PO BOX 71727\nPHILADELPHIA, PA 19176",
+				"address_line": "PO BOX 71727",
+				"city": "PHILADELPHIA",
+				"state": "PA",
+				"zipcode": "19176",
+				"phone": "8663968254",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:49.000000Z",
+				"updated_at": "2024-12-21T10:37:49.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48916,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "SYNCB/ROOMS TO GO",
+				"address": "PO BOX 71757\nPHILADELPHIA, PA 19176",
+				"address_line": "PO BOX 71757",
+				"city": "PHILADELPHIA",
+				"state": "PA",
+				"zipcode": "19176",
+				"phone": "8663968254",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:47.000000Z",
+				"updated_at": "2024-12-21T10:37:47.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48917,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "WELLS FARGO CARD SERV",
+				"address": "PO BOX 393\nMINNEAPOLIS, MN 55480",
+				"address_line": "PO BOX 393",
+				"city": "MINNEAPOLIS",
+				"state": "MN",
+				"zipcode": "55480",
+				"phone": "8558543502",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:47.000000Z",
+				"updated_at": "2024-12-21T10:37:47.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			},
+			{
+				"id": 48924,
+				"user_id": 583,
+				"user_type": "App\\Models\\User",
+				"creditor_name": "WFBNA CARD",
+				"address": "PO BOX 393\nMINNEAPOLIS, MN 55480",
+				"address_line": "PO BOX 393",
+				"city": "MINNEAPOLIS",
+				"state": "MN",
+				"zipcode": "55480",
+				"phone": "8560000000",
+				"fax_number": null,
+				"type": 2,
+				"report_id": 1915,
+				"created_at": "2024-12-21T10:37:49.000000Z",
+				"updated_at": "2024-12-21T10:37:49.000000Z",
+				"deleted_at": null,
+				"contacted": 0
+			}
+		],
+		"dataFurnishers": [
+			{
+				"id": 6,
+				"name": "Innovis",
+				"description": "<p>Provides identity verification data to assist with fraud detection and prevention.</p><p>Innovis is a subsidiary of CBC Companies. Inc.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it</p>",
+				"address_name": "Innovis Consumer Assistance",
+				"street_address": "P.O. Box 530089",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30353-0089",
+				"phone_number": "800-540-2505",
+				"phone_number1": "",
+				"phone_number2": "",
+				"fax_number": "",
+				"website": "https://www.innovis.com/personal/creditReport",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/innovis-logo.png",
+				"category_id": 7,
+				"created_at": "2021-06-24T20:17:53.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 124,
+				"type": 0
+			},
+			{
+				"id": 7,
+				"name": "CoreLogic Credco",
+				"description": "<p>Collects and reports personal data such as property ownership and home loan obligation records; property legal filings and tax payment status; rental applications and collection accounts; consumer bankruptcies, liens, judgments, and child support obligations.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p>",
+				"address_name": "CoreLogic Credco, LLC",
+				"street_address": "P.O. Box 509124",
+				"city": "San Diego",
+				"state": "CA",
+				"state_abbrev": "CA",
+				"zipcode": "92150",
+				"phone_number": "877-532-8778",
+				"phone_number1": "",
+				"phone_number2": "",
+				"fax_number": "",
+				"website": "https://www.corelogic.com/solutions/credco-consumer-assistance.aspx",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/core-logic-logo.png",
+				"category_id": 7,
+				"created_at": "2021-06-24T20:17:53.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 125,
+				"type": 0
+			},
+			{
+				"id": 20,
+				"name": "LexisNexis Risk Solutions",
+				"description": "<p>Collects information from public records and multiple proprietary data sources. This includes items such as real estate transaction and ownership data, lien, judgment, and bankruptcy records, professional license information, and historical addresses on file.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "LexisNexis Risk Solutions Consumer Center",
+				"street_address": "P.O. Box 105108",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30348-5108",
+				"phone_number": "888-497-0011",
+				"phone_number1": "",
+				"phone_number2": "",
+				"fax_number": "",
+				"website": "https://consumer.risk.lexisnexis.com/consumer",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/lexis-nexis-logo.png",
+				"category_id": 7,
+				"created_at": "2023-01-09T11:41:27.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 131,
+				"type": 0
+			},
+			{
+				"id": 50,
+				"name": "First Advantage Corporation",
+				"description": "<p>Provides background screening and post-hire workforce monitoring services.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "First Advantage Consumer Center",
+				"street_address": "P.O. Box 105292",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30348-5292",
+				"phone_number": "800-845-6004",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "http://www.fadv.com/free-report-for-consumers.aspx",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/first-advantage-logo.png",
+				"category_id": 1,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 148,
+				"type": 0
+			},
+			{
+				"id": 60,
+				"name": "The Work Number",
+				"description": "<p>Provides employment and income information. It includes data collected from employers and large private sector payroll processors. The Work Number provides this information to employers. It also provides this information to government agency clients to determine, for example, an applicant’s eligibility for public assistance programs, or, say, to inform child support collections and enforcement.</p><p>Equifax Workforce Solutions, also known as TALX Corporation, operates The Work Number. TALX is a wholly owned subsidiary of Equifax.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "Equifax Workforce Solutions Attn: EDR",
+				"street_address": "3470 Rider Trail South",
+				"city": "Earth City",
+				"state": "MO",
+				"state_abbrev": "MO",
+				"zipcode": "63045",
+				"phone_number": "866-604-6570",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.theworknumber.com/Employees/DataReport/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/the-work-number-logo.png",
+				"category_id": 1,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 158,
+				"type": 0
+			},
+			{
+				"id": 66,
+				"name": "SafeRent Solutions, LLC",
+				"description": "<p>Provides resident screening and an applicant resident risk score to property managers and landlords.</p><p>SafeRent Solutions has been acquired by Park Hill Holdings.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free copy of your SafeRent Solutions consumer file every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "SafeRent Solutions, LLC. Consumer Relations Department",
+				"street_address": "P.O. Box 3890",
+				"city": "Coppell",
+				"state": "TX",
+				"state_abbrev": "TX",
+				"zipcode": "75019",
+				"phone_number": "",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://saferentsolutions.com/rental-applicant-support/",
+				"links": "",
+				"email": "",
+				"logo_url": null,
+				"category_id": 2,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 164,
+				"type": 0
+			},
+			{
+				"id": 68,
+				"name": "First Advantage Corporation Resident Solutions",
+				"description": "<p>Provides tenant screening services for property managers, owners, and leasing agents.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it by calling or emailing consumer.documents@fadv.com.</p>",
+				"address_name": "First Advantage Consumer Center",
+				"street_address": "P.O. Box 105292",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30348-5292",
+				"phone_number": "800-845-6004",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://fadv.com/solutions/residential-tenant-background-checks/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/first-advantage-logo.png",
+				"category_id": 2,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 166,
+				"type": 0
+			},
+			{
+				"id": 69,
+				"name": "Real Page, Inc. (LeasingDesk)",
+				"description": "<p>Provides consumer data, resident screening services to rental property owners and managers.</p><p>Real Page has been acquired by Thoma Bravo LP.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "LeasingDesk Screening Attn: Consumer Relations",
+				"street_address": "2201 Lakeside Blvd.",
+				"city": "Richardson",
+				"state": "TX",
+				"state_abbrev": "TX",
+				"zipcode": "75082",
+				"phone_number": "866-934-1124",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.realpage.com/support/consumer/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/real-page-logo.png",
+				"category_id": 2,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 167,
+				"type": 0
+			},
+			{
+				"id": 74,
+				"name": "ChexSystems",
+				"description": "<p>Provides account verification services primarily for financial institutions. Collects and reports data on checking account applications, openings, and closures, including reasons for account closure</p><p>ChexSystems is ownedby the eFunds subsidiary of Fidelity National Information Services, Inc. (FNIS).</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it. A free score will be provided upon request too.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "ChexSystems, Inc. Attn: Consumer Relations",
+				"street_address": "7805 Hudson Road, Suite 100",
+				"city": "Woodbury",
+				"state": "MN",
+				"state_abbrev": "MN",
+				"zipcode": "55125",
+				"phone_number": "800-428-9623",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "http://www.chexsystems.com/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/chex-systems-logo.png",
+				"category_id": 3,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 172,
+				"type": 0
+			},
+			{
+				"id": 79,
+				"name": "LexisNexis C.L.U.E. (Auto & Property Reports)",
+				"description": "<p>LexisNexis C.L.U.E. (Comprehensive Loss Underwriting Exchange) is a claims information exchange. It collects and reports up to seven years of auto and personal property claims. It also provides insurance risk scores to help inform pricing and underwriting decisions for the insurance industry.</p><p>LexisNexis C.L.U.E. Inc. is affiliated with LexisNexis Risk Solutions</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "LexisNexis Risk Solutions Consumer Center",
+				"street_address": "P.O. Box 105108",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30348-5108",
+				"phone_number": "888-497-0011",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://consumer.risk.lexisnexis.com/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/lexis-nexis-logo.png",
+				"category_id": 4,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 177,
+				"type": 0
+			},
+			{
+				"id": 83,
+				"name": "Clarity Services",
+				"description": "<p>Collects and provides information on payday loans, installment loans, auto loans (and leasing), check cashing services, rent-to-own transactions, telecommunication account openings, and financial services with an emphasis on the lowerincome and subprime consumer market segments.</p><p>Clarity Services is owned by Experian.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report and score:</h5><p>The company will provide one free report every 12 months if you request it. The company will also provide a credit score if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "Clarity Services, Inc.",
+				"street_address": "P.O. Box 5717",
+				"city": "Clearwater",
+				"state": "FL",
+				"state_abbrev": "FL",
+				"zipcode": "33758",
+				"phone_number": "866-390-3118",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.clarityservices.com/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/clarity-logo.png",
+				"category_id": 6,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 181,
+				"type": 0
+			},
+			{
+				"id": 84,
+				"name": "Teletrack",
+				"description": "<p>Collects consumer information about, and provides data to, payday lenders, rent-to-own businesses, furniture stores that offer financing, auto finance and leasing companies, high risk consumer finance businesses, subprime home lending businesses, subprime credit card issuers, banks, credit unions, cable/telecom companies and debt buyers/collectors.</p><p>Teletrack is an Equifax company.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "CoreLogic Teletrack",
+				"street_address": "P.O. Box 509124",
+				"city": "San Diego",
+				"state": "CA",
+				"state_abbrev": "CA",
+				"zipcode": "92150",
+				"phone_number": "877-309-5226",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://consumers.teletrack.com/",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/teletrack-logo.png",
+				"category_id": 6,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 182,
+				"type": 0
+			},
+			{
+				"id": 85,
+				"name": "DataX",
+				"description": "<p>Collects and provides consumer payment history on payday and installment loans, subprime credit cards and other specialty loans.</p><p>DataX is owned by Equifax.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it by mail.</p>",
+				"address_name": "DataX Security Freeze",
+				"street_address": "P.O. Box 740124",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30374",
+				"phone_number": "800-295-4790",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://consumers.dataxltd.com/annualCreditReport",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/data-x.png",
+				"category_id": 6,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 183,
+				"type": 0
+			},
+			{
+				"id": 86,
+				"name": "FactorTrust",
+				"description": "<p>Collects loan performance information on nonprime consumers to provide predictive credit data, analytics and risk scoring solutions to shortterm lenders, installment lenders, nonprime auto lenders (and leasing companies) and other subprime credit providers.</p><p>FactorTrust is owned by TransUnion.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "FactorTrust, Inc. Attn: Consumer Inquiries",
+				"street_address": "P.O. Box 3653",
+				"city": "Alpharetta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30023",
+				"phone_number": "844-773-3321",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.transunion.com/client-support/factortrust-consumer-inquiry",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/factor-trust-logo.png",
+				"category_id": 6,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 184,
+				"type": 0
+			},
+			{
+				"id": 87,
+				"name": "MicroBilt",
+				"description": "<p>Collects recurring bill repayment data, such as monthly billing data from rent, utility, phone plans, car insurance, and streaming media subscriptions to generate consumer credit reports and risk scores for businesses that offer short term, rent-to-own, auto, retail and consumer finance lending.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "MicroBilt Attn: Consumer Affairs Department",
+				"street_address": "P.O. Box 440693",
+				"city": "Kennesaw",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30160",
+				"phone_number": "888-222-7621",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.microbilt.com/us/consumer-affairs",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/microbilt-logo.png",
+				"category_id": 6,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 185,
+				"type": 0
+			},
+			{
+				"id": 88,
+				"name": "SageStream (subsidiary of ID Analytics, LLC)",
+				"description": "<p>Collects information from, and provides supplementary consumer reports to, auto lenders, credit card issuers, retailers, utilities and mobile phone service providers among other service providers.</p><p>SageStream is owned by LexisNexis Risk Solutions.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "SageStream, LLC Consumer Office",
+				"street_address": "P.O. Box 503793",
+				"city": "San Diego",
+				"state": "CA",
+				"state_abbrev": "CA",
+				"zipcode": "92150",
+				"phone_number": "888-395-0277",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "http://www.sagestreamllc.com/",
+				"links": "",
+				"email": "",
+				"logo_url": null,
+				"category_id": 7,
+				"created_at": "2023-01-09T11:48:14.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 186,
+				"type": 0
+			},
+			{
+				"id": 89,
+				"name": "National Consumer Telecom & Utilities Exchange (NCTUE)",
+				"description": "<p>This membership of companies collects and shares information on new telecom and utility connect requests, paid-as-agreedand past-due account and payment histories including delinquencies and charge-offs, associated with telecommunications, pay TV, and utility (electric, gas, water) services.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "NCTUE Disclosure Report Exchange Service Center - NCTUE",
+				"street_address": "P.O. Box 105161",
+				"city": "Atlanta",
+				"state": "GA",
+				"state_abbrev": "GA",
+				"zipcode": "30348",
+				"phone_number": "866-349-5185",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.nctue.com/consumers",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/nctue-logo.png",
+				"category_id": 8,
+				"created_at": "2023-01-09T11:48:15.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 187,
+				"type": 0
+			},
+			{
+				"id": 93,
+				"name": "Advanced Resolution Services",
+				"description": "<p>Collects information about consumers’ approved and declined bankcard applications.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--file-text feather-ico\" data-name=\"file-text\" data-tags=\"data,txt,pdf\" data-type=\"file-text\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file-text vue-feather__content\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg></i></span>Free report:</h5><p>The company will provide one free report every 12 months if you request it.</p><h5 class=\"d-flex\"><span class=\"data-furnisher-model-text\"><i class=\"vue-feather vue-feather--settings feather-ico\" data-name=\"settings\" data-tags=\"cog,edit,gear,preferences\" data-type=\"settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-settings vue-feather__content\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg></i></span>Freeze your report:</h5><p>The company will freeze your consumer report if you request it.</p>",
+				"address_name": "Advanced Resolution Services, Inc",
+				"street_address": "P.O. Box 4000",
+				"city": "Conway",
+				"state": "AR",
+				"state_abbrev": "AR",
+				"zipcode": "72033",
+				"phone_number": "800-392-8911",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.ars-consumeroffice.com/other",
+				"links": "",
+				"email": "",
+				"logo_url": "https://test-creditfixrr-spaces.nyc3.digitaloceanspaces.com/logos/ars-logo-trans.png",
+				"category_id": 7,
+				"created_at": "2023-09-08T13:29:48.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 192,
+				"type": 0
+			},
+			{
+				"id": 108,
+				"name": "LCI",
+				"description": "",
+				"address_name": "LCI Consumer Center",
+				"street_address": "P.O. Box 1582",
+				"city": "Burlingame",
+				"state": "CA",
+				"state_abbrev": "CA",
+				"zipcode": "94010",
+				"phone_number": "650-386-0599",
+				"phone_number1": null,
+				"phone_number2": null,
+				"fax_number": "",
+				"website": "https://www.lciinc.com/transunionconsumers/",
+				"links": "https://www.lciinc.com/transunionconsumers/",
+				"email": "consumercenter@lciinc.com",
+				"logo_url": null,
+				"category_id": 0,
+				"created_at": "2024-12-09T07:58:01.000000Z",
+				"updated_at": "2024-12-09T07:58:01.000000Z",
+				"is_report_free": 1,
+				"is_report_freeze": 1,
+				"checkbox": 0,
+				"selected_address": 191,
+				"type": 0
+			}
+		]
+	}
+}
