@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dispute Letter</title>
+</head>
+<body>
+    <h2>Dispute Letter</h2>
+    <p>Date: {{ current_date }}</p>
+    
+    <p>To Whom It May Concern,</p>
+    
+    <p>I am writing to dispute the following information in my credit report:</p>
+    
+    <ul>
+        <li><strong>Account Status:</strong> {{ account_status }}</li>
+        <li><strong>Payment Days:</strong> {{ payment_days }}</li>
+        <li><strong>Creditor Remark:</strong> {{ creditor_remark }}</li>
+        <li><strong>Balance:</strong> {{ account_details.balance }}</li>
+        <li><strong>Last Reported:</strong> {{ account_details.last_reported }}</li>
+    </ul>
+    
+    {% if additional_info %}
+    <p>{{ additional_info }}</p>
+    {% endif %}
+    
+    <p>Please investigate and correct the inaccurate information.</p>
+    
+    <p>Sincerely,</p>
+    <p>Your Name</p>
+</body>
+</html>

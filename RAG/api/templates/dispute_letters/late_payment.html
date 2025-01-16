@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Late Payment Dispute Letter</title>
+</head>
+<body>
+    <h2>Late Payment Dispute</h2>
+    <p>Date: {{ current_date }}</p>
+    
+    <p>To Whom It May Concern,</p>
+    
+    <p>I am disputing the late payment reported on my account:</p>
+    
+    <ul>
+        <li><strong>Account Number:</strong> {{ account_details.account_number }}</li>
+        <li><strong>Creditor Name:</strong> {{ account_details.furnisher_name }}</li>
+        <li><strong>Payment Date:</strong> {{ account_details.last_payment_date }}</li>
+    </ul>
+    
+    <p>Please verify the accuracy of this information and update my credit report accordingly.</p>
+    
+    <p>Sincerely,</p>
+    <p>Your Name</p>
+</body>
+</html>

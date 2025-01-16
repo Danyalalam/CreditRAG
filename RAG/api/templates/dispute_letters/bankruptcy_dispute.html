@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bankruptcy Dispute Letter</title>
+</head>
+<body>
+    <h2>Bankruptcy Dispute</h2>
+    <p>Date: {{ current_date }}</p>
+    
+    <p>To Whom It May Concern,</p>
+    
+    <p>I am writing to dispute the incorrect bankruptcy information listed in my credit report:</p>
+    
+    <ul>
+        <li><strong>Bankruptcy Type:</strong> {{ bankruptcy.type }}</li>
+        <li><strong>Date Filed:</strong> {{ bankruptcy.date_filed }}</li>
+        <li><strong>Status:</strong> {{ bankruptcy.status }}</li>
+    </ul>
+    
+    <p>Please investigate and correct this information accordingly.</p>
+    
+    <p>Sincerely,</p>
+    <p>Your Name</p>
+</body>
+</html>

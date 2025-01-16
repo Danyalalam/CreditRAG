@@ -52,11 +52,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'RAG.urls'
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'api', 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
