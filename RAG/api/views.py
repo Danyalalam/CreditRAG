@@ -1,5 +1,7 @@
 import json
 import os
+import base64
+import pdfkit  
 import google.generativeai as genai
 from django.conf import settings
 from django.http import JsonResponse
@@ -8,6 +10,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Process
 from .serializers import ProcessSerializer
+import markdown
+import logging  # Add logging
+
+# Initialize Logger
+logger = logging.getLogger(__name__)
 
 # Initialize Google Gemini API
 genai.configure(api_key=settings.GEMINI_API_KEY)
@@ -18,7 +25,6 @@ class DisputeLetterGenerator:
     @staticmethod
     def select_template(account_category):
         """Select the appropriate template based on account category."""
-        # Normalize the account category to match the keys in template_mapping
         account_category = account_category.lower().replace(" ", "_").replace("/", "_")
         
         template_mapping = {
@@ -37,18 +43,19 @@ class DisputeLetterGenerator:
     def load_template(template_name):
         """Load the template content from the file."""
         template_path = os.path.join(DisputeLetterGenerator.TEMPLATE_DIR, template_name)
-        print(f"Loading template from: {template_path}")  # Debug statement
+        logger.info(f"Loading template from: {template_path}")  # Use logger instead of print
         try:
             with open(template_path, "r") as file:
                 return file.read()
         except FileNotFoundError:
-            print(f"Template not found: {template_name}")  # Debug statement
-            # Fallback to a default template or raise a meaningful error
+            logger.error(f"Template not found: {template_name}")
             fallback_path = os.path.join(DisputeLetterGenerator.TEMPLATE_DIR, "generic_dispute.md")
+            logger.info(f"Loading fallback template from: {fallback_path}")
             try:
                 with open(fallback_path, "r") as file:
                     return file.read()
             except FileNotFoundError:
+                logger.critical("Fallback template not found.")
                 raise FileNotFoundError(
                     f"Neither the requested template ({template_name}) nor the fallback template (generic_dispute.md) was found in {DisputeLetterGenerator.TEMPLATE_DIR}."
                 )
@@ -56,11 +63,9 @@ class DisputeLetterGenerator:
     @staticmethod
     def generate_letter(account_details, account_category):
         """Generate a dispute letter using the selected template and LLM."""
-        # Select and load the template
         template_name = DisputeLetterGenerator.select_template(account_category)
         template_content = DisputeLetterGenerator.load_template(template_name)
 
-        # Prepare the prompt for the LLM
         prompt = f"""
         You are a financial assistant helping to generate a dispute letter.  
         Use the following template and fill in the placeholders with the provided account details:  
@@ -79,19 +84,24 @@ class DisputeLetterGenerator:
         - Do not add any extra text or explanations.  
         """
 
-        # Call the LLM to generate the letter
-        model = genai.GenerativeModel("gemini-1.5-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
 
-        # Extract the generated letter
         return response.text
 
 class ProcessView(APIView):
     def load_json(self, filename):
         """Load the specified JSON file."""
         json_file_path = settings.BASE_DIR / f'api/{filename}'
-        with open(json_file_path, 'r') as file:
-            return json.load(file)
+        try:
+            with open(json_file_path, 'r') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            logger.error(f"JSON file not found: {filename}")
+            return {}
+        except json.JSONDecodeError:
+            logger.error(f"JSON file is malformed: {filename}")
+            return {}
 
     def find_matching_account(self, json_data, account_status):
         """Find account with matching status in accountHistories."""
@@ -107,7 +117,6 @@ class ProcessView(APIView):
         """
         Uses Google Gemini API to classify an account using both Credit Data and Knowledge Base.
         """
-        # Load both JSON files
         credit_data = self.load_json("identityiq_1.json")
         knowledge_base = self.load_json("output_data.json")  # The actual knowledge base
 
@@ -140,17 +149,17 @@ class ProcessView(APIView):
         ```
         """
 
-        model = genai.GenerativeModel("gemini-1.5-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
 
-        # Extract only the JSON response from Gemini
         try:
             json_start = response.text.find("{")
             json_end = response.text.rfind("}") + 1
-            cleaned_json = response.text[json_start:json_end]  # Extract the JSON part
+            cleaned_json = response.text[json_start:json_end]
 
             return json.loads(cleaned_json)
         except json.JSONDecodeError:
+            logger.error("LLM response could not be parsed into JSON.")
             return {"category": "Uncategorized", "reason": "LLM response could not be parsed"}
 
     def evaluate_dispute_letter_needed(self, account_status, payment_status=None, creditor_remark=None):
@@ -178,9 +187,120 @@ class ProcessView(APIView):
         # Default to no dispute letter
         return False
 
+    def convert_markdown_to_pdf(self, markdown_content):
+        """Convert Markdown content to PDF with precise formatting."""
+        # Convert Markdown to HTML
+        html_content = markdown.markdown(markdown_content, extensions=['tables'])
+
+        # Professional Legal Document CSS
+        css = """
+        <style>
+            @page {
+                margin: 1in;
+                size: Letter;
+            }
+            body {
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                line-height: 1.5;
+                margin: 0;
+                color: #000000;
+            }
+            h1 {
+                font-size: 14pt;
+                font-weight: bold;
+                margin: 18pt 0 6pt 0;
+                text-align: center;
+            }
+            h2 {
+                font-size: 12pt;
+                font-weight: bold;
+                margin: 12pt 0 6pt 0;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 12pt 0;
+                page-break-inside: avoid;
+            }
+            th, td {
+                border: 1pt solid #000000;
+                padding: 6pt;
+                vertical-align: top;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+            .header-info {
+                margin-bottom: 24pt;
+            }
+            .signature-block {
+                margin-top: 36pt;
+            }
+            .footer {
+                font-size: 10pt;
+                color: #666666;
+                margin-top: 24pt;
+                border-top: 1pt solid #000000;
+                padding-top: 6pt;
+            }
+            ul {
+                padding-left: 24pt;
+            }
+            .legal-reference {
+                font-style: italic;
+                margin: 6pt 0;
+            }
+        </style>
+        """
+        
+        # Structured HTML template
+        html_template = f"""
+        <html>
+            <head>
+                <meta charset="utf-8">
+                {css}
+            </head>
+            <body>
+                <!-- Main Content -->
+                {html_content}
+                <!-- Footer -->
+                <div class="footer">
+                    Generated by CreditRAG Dispute System | Confidential Document
+                </div>
+            </body>
+        </html>
+        """
+
+        # PDF Generation
+        try:
+            options = {
+                'encoding': 'UTF-8',
+                'quiet': '',
+                'print-media-type': '',
+                'margin-top': '0.5in',
+                'margin-right': '0.5in',
+                'margin-bottom': '0.5in',
+                'margin-left': '0.5in'
+            }
+            
+            pdf_config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
+            pdf = pdfkit.from_string(
+                html_template,
+                False,
+                configuration=pdf_config,
+                options=options
+            )
+            return base64.b64encode(pdf).decode('utf-8')
+        except Exception as e:
+            logger.error(f"PDF generation failed: {str(e)}")
+            return None
+
     def get(self, request, format=None):
         """
-        Handle GET requests to classify accounts using Google Gemini with the Knowledge Base.
+        Handle GET requests to classify accounts and generate dispute letters as PDF.
         """
         account_status = request.query_params.get("account_status")
         payment_days = request.query_params.get("payment_days")
@@ -206,10 +326,10 @@ class ProcessView(APIView):
                         status=status.HTTP_400_BAD_REQUEST
                     )
 
-            # Call Gemini for classification using Credit Data + Knowledge Base
+            # Classify account using Credit Data + Knowledge Base
             gemini_result = self.classify_account(account_status, payment_days_int, creditor_remark)
-            account_category = gemini_result["category"]
-            reason = gemini_result["reason"]
+            account_category = gemini_result.get("category", "Uncategorized")
+            reason = gemini_result.get("reason", "")
 
             dispute_letter_needed = self.evaluate_dispute_letter_needed(
                 account_status=account_status,
@@ -248,15 +368,20 @@ class ProcessView(APIView):
                     "reason_for_dispute": "Incorrect account status or payment history.",  # Add a reason for dispute
                 }
 
-                dispute_letter = DisputeLetterGenerator.generate_letter(account_details, account_category)
-                response_data["dispute_letter"] = dispute_letter
+                dispute_letter_markdown = DisputeLetterGenerator.generate_letter(account_details, account_category)
+                dispute_letter_pdf = self.convert_markdown_to_pdf(dispute_letter_markdown)
+
+                if dispute_letter_pdf:
+                    response_data["dispute_letter_pdf"] = dispute_letter_pdf
+                else:
+                    response_data["dispute_letter_pdf"] = "Failed to generate PDF."
 
             serializer = ProcessSerializer(data=response_data)
             if serializer.is_valid():
                 serializer.save()
                 message = f"Account categorized as {account_category}. "
                 if dispute_letter_needed:
-                    message += "Dispute letter generated."
+                    message += "Dispute letter generated as PDF."
                 else:
                     message += "No dispute letter needed."
 
