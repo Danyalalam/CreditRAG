@@ -135,3 +135,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# settings.py additions
+# WKHTMLTOPDF_PATH = r'C:/Program Files/wkhtmltopdf/binwkhtmltopdf.exe'  # Adjust path as needed
