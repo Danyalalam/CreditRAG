@@ -297,7 +297,7 @@ class ProcessView(APIView):
         except Exception as e:
             logger.error(f"PDF generation failed: {str(e)}")
             return None
-
+        
     def get(self, request, format=None):
         """
         Handle GET requests to classify accounts and generate dispute letters as PDF.
@@ -355,17 +355,31 @@ class ProcessView(APIView):
 
             # Generate dispute letter if needed
             if dispute_letter_needed:
+                # Fetch dynamic personal information from JSON inside "report"
+                personal_info = credit_data.get("report", {}).get("personalInformation", [])
+                if personal_info and len(personal_info) > 0:
+                    personal = personal_info[0]
+                    your_name = personal.get("name", [""])[0]
+                    your_address = personal.get("current_addresses", [""])[0]
+                    # Optional: parse city, state, zip from "your_address" if available
+                    credit_bureau_name = personal.get("credit_reporting_agency", {}).get("name", "")
+                else:
+                    your_name = "John Doe"
+                    your_address = "123 Main St"
+                    credit_bureau_name = ""
+
                 account_details = {
-                    "your_name": "John Doe",  # Replace with actual user details
-                    "your_address": "123 Main St",
-                    "city_state_zip": "City, State, ZIP",
+                    "your_name": your_name,
+                    "your_address": your_address,
+                    "city_state_zip": "",  # Populate if detailed address is available in JSON.
                     "creditor_name": matched_history.get('furnisher_name'),
-                    "creditor_address": "Creditor Address",  # Replace with actual creditor address
+                    "creditor_address": "Creditor Address",  # Replace if available dynamically.
                     "account_number": matched_history.get('account_number'),
                     "account_status": account_status,
                     "payment_status": payment_days_int,
                     "creditor_remark": creditor_remark,
-                    "reason_for_dispute": "Incorrect account status or payment history.",  # Add a reason for dispute
+                    "reason_for_dispute": "Incorrect account status or payment history.",
+                    "credit_bureau_name": credit_bureau_name
                 }
 
                 dispute_letter_markdown = DisputeLetterGenerator.generate_letter(account_details, account_category)
