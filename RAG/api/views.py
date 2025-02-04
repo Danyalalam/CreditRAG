@@ -23,10 +23,13 @@ class DisputeLetterGenerator:
     @staticmethod
     def select_template(account_category):
         account_category = account_category.lower().replace(" ", "_")
+        # Added inquiry and public record account template mapping.
         template_mapping = {
             "positive_account": "Positive_Account_Dispute_Letter.md",
             "derogatory_account": "Derogatory_Account_Dispute_Letter.md",
             "delinquent_late_account": "Late_Payment_Dispute_Letter.md",
+            "inquiry_account": "Inquiry_Dispute_Letter.md",
+            "public_record_account": "Public_Record_Dispute_Letter.md"
         }
         return template_mapping.get(account_category, "generic_dispute.md")
     
@@ -68,13 +71,17 @@ Use the following template and fill in the placeholders with the provided common
 - Generate a table for disputed accounts if applicable.
 - Keep the markdown formatting intact.
         """
-        # Add dynamic instructions based on category, if desired.
+        # Add dynamic instructions based on category.
         if account_category == "delinquent_late_account":
             prompt += "\nEnsure the background section clearly explains the late payment issues."
         elif account_category == "derogatory_account":
             prompt += "\nHighlight the derogatory remarks and collection details in the letter."
         elif account_category == "positive_account":
             prompt += "\nEmphasize the positive payment history and current status."
+        elif account_category == "inquiry_account":
+            prompt += "\nMention that the inquiry was recently performed and its potential impact."
+        elif account_category == "public_record_account":
+            prompt += "\nReference the public record details such as bankruptcies, liens or judgments."
         model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
         return response.text
@@ -115,6 +122,7 @@ class UploadReportView(APIView):
             "credit_bureau_name": credit_bureau_name
         }
         
+        # Extract disputed accounts from account histories
         account_histories = data.get("report", {}).get("accountHistories", [])
         extracted_disputed_accounts = []
         for account in account_histories:
@@ -128,6 +136,32 @@ class UploadReportView(APIView):
                 }
                 extracted_disputed_accounts.append(disputed_account)
         
+        # Extract inquiries and mark them as inquiry type.
+        inquiries = data.get("report", {}).get("inquiries", [])
+        for inquiry in inquiries:
+            disputed_inquiry = {
+                "creditor_name": inquiry.get("creditor_name", "Unknown"),
+                "type_of_business": inquiry.get("type_of_business", ""),
+                "credit_bureau": inquiry.get("credit_bureau", ""),
+                "date_of_inquiry": inquiry.get("date_of_inquiry", ""),
+                "account_type": "inquiry"
+            }
+            extracted_disputed_accounts.append(disputed_inquiry)
+        
+        # Extract public records from the "summary" section for Public Record Account.
+        summary = data.get("summary", {})
+        if summary:
+            public_records = summary.get("public_records")
+            if public_records is not None:
+                disputed_public_record = {
+                    "creditor_name": "Public Record",
+                    "account_number": "",
+                    "reason_for_dispute": f"Public records count: {public_records}",
+                    "account_type": "public_record"
+                }
+                extracted_disputed_accounts.append(disputed_public_record)
+        
+        # Determine default category based on account histories; if none match, use inquiry if available.
         default_category = "generic_dispute"
         for account in account_histories:
             status_val = account.get("account_status", "").lower()
@@ -137,6 +171,11 @@ class UploadReportView(APIView):
             elif "derogatory" in status_val:
                 default_category = "derogatory_account"
                 break
+        if default_category == "generic_dispute":
+            if inquiries:
+                default_category = "inquiry_account"
+            elif summary and summary.get("public_records") is not None:
+                default_category = "public_record_account"
         
         return Response({
             "message": "Report uploaded successfully.",
@@ -153,7 +192,7 @@ class CategorizeAccountsView(APIView):
         if not account_status_list:
             return Response({"error": "Missing account_status parameter(s)"}, status=status.HTTP_400_BAD_REQUEST)
         classifications = []
-        # Reuse classify_account from below by instantiating a helper object.
+        # Reuse classify_account from ProcessHelper.
         helper = ProcessHelper()
         for idx, account_status in enumerate(account_status_list):
             payment_days = payment_days_list[idx] if idx < len(payment_days_list) else "0"
@@ -176,26 +215,34 @@ class GenerateDisputeView(APIView):
     def determine_category(self, disputed_accounts):
         """
         Determine overall account category based on each disputed account's data.
-        Example rules:
-          - Positive Account: if reason does not contain derogatory or late keywords.
-          - Derogatory Account: if reason contains keywords like "charge-off", "collection", "repossession", etc.
-          - Delinquent or Late Account: if reason contains "late" or "past due".
+        Rules:
+          - If an account has "inquiry" type then category = inquiry_account.
+          - If an account has "public_record" type then category = public_record_account.
+          - Otherwise, if reason contains derogatory keywords then derogatory_account.
+          - Otherwise, if reason contains late indicators then delinquent_late_account.
+          - Otherwise, positive_account.
         """
         category_priority = {
+            "public_record_account": 5,
+            "inquiry_account": 4,
             "derogatory_account": 3,
             "delinquent_late_account": 2,
             "positive_account": 1
         }
         overall = "positive_account"
         for account in disputed_accounts:
-            reason = account.get("reason_for_dispute", "").lower()
-            if any(kw in reason for kw in ["charge-off", "collection", "repossession", "foreclosure", "settled"]):
-                current = "derogatory_account"
-            elif any(kw in reason for kw in ["late", "past due"]):
-                current = "delinquent_late_account"
+            if account.get("account_type") == "inquiry":
+                current = "inquiry_account"
+            elif account.get("account_type") == "public_record":
+                current = "public_record_account"
             else:
-                current = "positive_account"
-
+                reason = account.get("reason_for_dispute", "").lower()
+                if any(kw in reason for kw in ["charge-off", "collection", "repossession", "foreclosure", "settled"]):
+                    current = "derogatory_account"
+                elif any(kw in reason for kw in ["late", "past due"]):
+                    current = "delinquent_late_account"
+                else:
+                    current = "positive_account"
             if category_priority[current] > category_priority[overall]:
                 overall = current
         return overall
@@ -203,7 +250,7 @@ class GenerateDisputeView(APIView):
     def post(self, request, format=None):
         received_data = request.data
         account_details = received_data.get("account_details")
-        # account_category provided by the UI can be overridden by system categorization
+        # account_category provided by the UI can be overridden by system categorization.
         provided_category = received_data.get("account_category")
         disputed_accounts = received_data.get("disputed_accounts")
         if not account_details or disputed_accounts is None:
@@ -211,7 +258,6 @@ class GenerateDisputeView(APIView):
         
         # Re-categorize disputed accounts based on predefined criteria.
         computed_category = self.determine_category(disputed_accounts)
-        # Use computed_category, but if needed you can also merge with provided_category.
         overall_category = computed_category
         
         # Generate the dispute letter using the determined category.
@@ -222,22 +268,12 @@ class GenerateDisputeView(APIView):
 
 class DownloadPDFView(APIView):
     def get(self, request, format=None):
-        markdown_text = request.query_params.get('markdown')
-        if not markdown_text:
-            return Response({"error": "Missing markdown parameter."}, status=status.HTTP_400_BAD_REQUEST)
-        # Use the helper conversion from the ProcessHelper below.
-        helper = ProcessHelper()
-        pdf_base64 = helper.convert_markdown_to_pdf(markdown_text)
-        if not pdf_base64:
-            return Response({"error": "PDF generation failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        # Decode base64 PDF back into binary
-        pdf_binary = base64.b64decode(pdf_base64)
-        response = HttpResponse(pdf_binary, content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="dispute_letter.pdf"'
-        return response
+        # Inform users that PDF conversion functionality is no longer available.
+        return Response(
+            {"error": "PDF conversion functionality has been removed."},
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
-
-# Remove the convert_markdown_to_pdf method from ProcessHelper entirely.
 class ProcessHelper(APIView):
     def load_json(self, filename):
         json_file_path = settings.BASE_DIR / f'api/{filename}'
@@ -297,11 +333,3 @@ class ProcessHelper(APIView):
         except json.JSONDecodeError:
             logger.error("LLM response could not be parsed into JSON.")
             return {"category": "Uncategorized", "reason": "LLM response could not be parsed"}
-
-# Update DownloadPDFView to inform that PDF conversion is no longer available.
-class DownloadPDFView(APIView):
-    def get(self, request, format=None):
-        return Response(
-            {"error": "PDF conversion functionality has been removed."},
-            status=status.HTTP_400_BAD_REQUEST
-        )
