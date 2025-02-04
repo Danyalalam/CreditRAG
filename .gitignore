@@ -1,3 +1,10 @@
 credit
 .env
 src/data
+RAG/api/identityiq_2.json
+RAG/api/myfreescorenow_1.json
+RAG/api/myscoreiq_1.json
+RAG/api/smartcredit_2.json
+RAG/api/smartcredit_1.json
+RAG/api/smartcredit_3.json
+RAG/api/myfreescorenow_2.json

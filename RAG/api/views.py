@@ -11,7 +11,7 @@ from rest_framework import status
 from .models import Process
 from .serializers import ProcessSerializer
 import markdown
-import logging  # Add logging
+import logging
 
 # Initialize Logger
 logger = logging.getLogger(__name__)
@@ -26,7 +26,6 @@ class DisputeLetterGenerator:
     def select_template(account_category):
         """Select the appropriate template based on account category."""
         account_category = account_category.lower().replace(" ", "_").replace("/", "_")
-        
         template_mapping = {
             "derogatory_account": "Derogatory_Account_Dispute_Letter.md",
             "delinquent_late_account": "Late_Payment_Dispute_Letter.md",
@@ -36,14 +35,13 @@ class DisputeLetterGenerator:
             "opt_out_request": "Opt-Out_Request_Template.md",
             "consumer_disclosure_request": "Consumer_Disclosure_Report_Request.md",
         }
-        
         return template_mapping.get(account_category, "generic_dispute.md")
 
     @staticmethod
     def load_template(template_name):
         """Load the template content from the file."""
         template_path = os.path.join(DisputeLetterGenerator.TEMPLATE_DIR, template_name)
-        logger.info(f"Loading template from: {template_path}")  # Use logger instead of print
+        logger.info(f"Loading template from: {template_path}")
         try:
             with open(template_path, "r") as file:
                 return file.read()
@@ -61,32 +59,57 @@ class DisputeLetterGenerator:
                 )
 
     @staticmethod
-    def generate_letter(account_details, account_category):
-        """Generate a dispute letter using the selected template and LLM."""
+    def generate_letter(account_details, account_category, disputed_accounts):
+        """
+        Generate a dispute letter for one or more accounts.
+        The template will include the common account details along with a table for disputed accounts.
+        For late payment dispute letters, dynamically customize the 'Background' section.
+        """
         template_name = DisputeLetterGenerator.select_template(account_category)
         template_content = DisputeLetterGenerator.load_template(template_name)
 
+        # Build the basic prompt using the template and provided data.
         prompt = f"""
-        You are a financial assistant helping to generate a dispute letter.  
-        Use the following template and fill in the placeholders with the provided account details:  
+        You are a financial assistant helping to generate a dispute letter.
+        Use the following template and fill in the placeholders with the provided common account details and disputed accounts list.
 
-        **Template:**  
-        {template_content}  
+        **Template:**
+        {template_content}
 
-        **Account Details:**  
-        {json.dumps(account_details, indent=2)}  
+        **Common Account Details:**
+        {json.dumps(account_details, indent=2)}
 
-        **Instructions:**  
-        - Replace placeholders like [Your Name], [Creditor Name], etc., with the actual values.  
-        - Replace [Date] with today's date in the format "Month Day, Year".  
-        - Replace [Reason for Dispute] with a concise explanation based on the account details.  
-        - Keep the markdown formatting intact.  
-        - Do not add any extra text or explanations.  
+        **Disputed Accounts List:**
+        {json.dumps(disputed_accounts, indent=2)}
+
+        **Instructions:**
+        - Replace placeholders like [Your Name], [Creditor Name], etc., with the actual values.
+        - For the disputed accounts, generate a table with a row for each disputed account.
+        - Replace [Date] with today's date in the format "Month Day, Year".
+        - Replace [Reason for Dispute] with the explanation provided for each disputed account.
+        - Keep the markdown formatting intact.
+        - Do not add any extra text or explanations.
         """
+
+        # For late payment dispute letters, instruct the model to dynamically modify
+        # the 'Background' section of the template.
+        if account_category.lower().replace(" ", "_") == "delinquent_late_account":
+            dynamic_instructions = """
+            
+Additionally, dynamically update the 'Background' section of the letter.
+Replace the standard text:
+
+    The late payment(s) reported for the account(s) listed above are inaccurate for the following reasons:  
+
+    - [Reason 1: Example: Payment was made on time, as shown by the attached bank statements.]  
+    - [Reason 2: Example: This account was paid in full before the due date.]
+
+with personalized and detailed reasons based on the account data provided.
+            """
+            prompt += dynamic_instructions
 
         model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
-
         return response.text
 
 class ProcessView(APIView):
@@ -107,7 +130,6 @@ class ProcessView(APIView):
         """Find account with matching status in accountHistories."""
         account_histories = json_data.get('report', {}).get('accountHistories', [])
         normalized_status = account_status.title()
-
         for account in account_histories:
             if account.get('account_status') == normalized_status:
                 return account
@@ -118,7 +140,7 @@ class ProcessView(APIView):
         Uses Google Gemini API to classify an account using both Credit Data and Knowledge Base.
         """
         credit_data = self.load_json("identityiq_1.json")
-        knowledge_base = self.load_json("output_data.json")  # The actual knowledge base
+        knowledge_base = self.load_json("output_data.json")
 
         prompt = f"""
         You are a financial expert analyzing credit reports. Categorize the given account into one of:
@@ -127,7 +149,7 @@ class ProcessView(APIView):
         - Delinquent/Late Account
         - Inquiry Account
         - Public Record Account
-        
+
         Based on the following credit report details:
         - Account Status: {account_status}
         - Payment Status: {payment_status}
@@ -136,10 +158,10 @@ class ProcessView(APIView):
         Additionally, use this **Knowledge Base** to help improve classification:
         {json.dumps(knowledge_base, indent=2)}
 
-        **IMPORTANT:**  
-        - Only respond in **pure JSON format**.  
-        - Do **NOT** include any explanations or extra text outside the JSON.  
-        - Return the JSON in this **exact format**:  
+        **IMPORTANT:**
+        - Only respond in **pure JSON format**.
+        - Do **NOT** include any explanations or extra text outside the JSON.
+        - Return the JSON in this **exact format**:
 
         ```json
         {{
@@ -151,12 +173,10 @@ class ProcessView(APIView):
 
         model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
-
         try:
             json_start = response.text.find("{")
             json_end = response.text.rfind("}") + 1
             cleaned_json = response.text[json_start:json_end]
-
             return json.loads(cleaned_json)
         except json.JSONDecodeError:
             logger.error("LLM response could not be parsed into JSON.")
@@ -167,32 +187,21 @@ class ProcessView(APIView):
         Determines if a dispute letter is needed based on the provided criteria.
         """
         account_status = account_status.lower()
-
-        # No dispute letter needed for closed or paid accounts
         if account_status in ['closed', 'paid']:
             return False
-
-        # For open accounts
         if account_status == 'open':
             if payment_status is not None and payment_status <= 30:
-                return False  # No dispute letter needed if payment status <= 30 days
-            return True  # Dispute letter needed if payment status > 30 days
-
-        # For derogatory accounts
+                return False
+            return True
         if account_status == 'derogatory':
             if creditor_remark and creditor_remark.lower() == 'valid':
-                return False  # No dispute letter needed if creditor remark is valid
-            return True  # Dispute letter needed if creditor remark is invalid or missing
-
-        # Default to no dispute letter
+                return False
+            return True
         return False
 
     def convert_markdown_to_pdf(self, markdown_content):
         """Convert Markdown content to PDF with precise formatting."""
-        # Convert Markdown to HTML
         html_content = markdown.markdown(markdown_content, extensions=['tables'])
-
-        # Professional Legal Document CSS
         css = """
         <style>
             @page {
@@ -255,8 +264,6 @@ class ProcessView(APIView):
             }
         </style>
         """
-        
-        # Structured HTML template
         html_template = f"""
         <html>
             <head>
@@ -264,17 +271,13 @@ class ProcessView(APIView):
                 {css}
             </head>
             <body>
-                <!-- Main Content -->
                 {html_content}
-                <!-- Footer -->
                 <div class="footer">
                     Generated by CreditRAG Dispute System | Confidential Document
                 </div>
             </body>
         </html>
         """
-
-        # PDF Generation
         try:
             options = {
                 'encoding': 'UTF-8',
@@ -285,7 +288,6 @@ class ProcessView(APIView):
                 'margin-bottom': '0.5in',
                 'margin-left': '0.5in'
             }
-            
             pdf_config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
             pdf = pdfkit.from_string(
                 html_template,
@@ -300,96 +302,111 @@ class ProcessView(APIView):
 
     def get(self, request, format=None):
         """
-        Handle GET requests to classify accounts and generate dispute letters as PDF.
+        Handle GET requests to classify accounts and generate a dispute letter PDF for multiple accounts.
+        Expect multiple query parameters using the same key:
+         - account_status
+         - payment_days
+         - creditor_remark
         """
-        account_status = request.query_params.get("account_status")
-        payment_days = request.query_params.get("payment_days")
-        creditor_remark = request.query_params.get("creditor_remark")
+        account_status_list = request.query_params.getlist("account_status")
+        payment_days_list = request.query_params.getlist("payment_days")
+        creditor_remark_list = request.query_params.getlist("creditor_remark")
 
-        if not account_status:
+        if not account_status_list:
             return Response(
-                {"error": "Missing account_status parameter"},
+                {"error": "Missing account_status parameter(s)"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+        disputed_accounts = []
+        overall_account_category = "Uncategorized"
+        overall_reason = []
+
         credit_data = self.load_json("identityiq_1.json")
-        matched_history = self.find_matching_account(credit_data, account_status)
 
-        if matched_history:
-            payment_days_int = None
-            if payment_days:
-                try:
-                    payment_days_int = int(payment_days)
-                except ValueError:
-                    return Response(
-                        {"error": "payment_days must be a number"},
-                        status=status.HTTP_400_BAD_REQUEST
-                    )
+        # Process each account provided in the query parameters
+        # In the for loop processing each account, update the disputed_accounts entry as follows:
+        for idx, account_status in enumerate(account_status_list):
+            payment_days = payment_days_list[idx] if idx < len(payment_days_list) else "0"
+            creditor_remark = creditor_remark_list[idx] if idx < len(creditor_remark_list) else None
 
-            # Classify account using Credit Data + Knowledge Base
+            try:
+                payment_days_int = int(payment_days)
+            except ValueError:
+                return Response(
+                    {"error": f"payment_days at index {idx} must be a number"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            matched_history = self.find_matching_account(credit_data, account_status)
+            if not matched_history:
+                continue
+
             gemini_result = self.classify_account(account_status, payment_days_int, creditor_remark)
-            account_category = gemini_result.get("category", "Uncategorized")
+            account_category_for_this = gemini_result.get("category", "Uncategorized")
+            overall_account_category = account_category_for_this  # You may aggregate if needed.
             reason = gemini_result.get("reason", "")
+            overall_reason.append(reason)
 
-            dispute_letter_needed = self.evaluate_dispute_letter_needed(
-                account_status=account_status,
-                payment_status=payment_days_int,
-                creditor_remark=creditor_remark
+            if self.evaluate_dispute_letter_needed(account_status, payment_days_int, creditor_remark):
+                disputed_account = {
+                    "creditor_name": matched_history.get("furnisher_name"),
+                    "account_number": matched_history.get("account_number"),
+                    "reason_for_dispute": reason or "Incorrect account status or payment history."
+                }
+                # Add reported late payment dates only for late payment dispute letters.
+                if account_category_for_this.lower() == "delinquent/late account":
+                    disputed_account["reported_late_payment_dates"] = matched_history.get("date_last_payment")
+                disputed_accounts.append(disputed_account)
+
+        # Get common personal info from credit report
+        personal_info = credit_data.get("report", {}).get("personalInformation", [])
+        if personal_info and len(personal_info) > 0:
+            personal = personal_info[0]
+            your_name = personal.get("name", [""])[0]
+            your_address = personal.get("current_addresses", [""])[0]
+            credit_bureau_name = personal.get("credit_reporting_agency", {}).get("name", "")
+        else:
+            your_name = "John Doe"
+            your_address = "123 Main St"
+            credit_bureau_name = ""
+
+        common_account_details = {
+            "your_name": your_name,
+            "your_address": your_address,
+            "city_state_zip": "",
+            "credit_bureau_name": credit_bureau_name
+        }
+
+        # Update response_data keys to match the ProcessSerializer expectations
+        response_data = {
+    "account_status": ", ".join(account_status_list),
+    "payment_days": int(payment_days_list[0]) if payment_days_list else 0,
+    "creditor_remark": ", ".join(creditor_remark_list) if creditor_remark_list and any(creditor_remark_list) else "Not Provided",
+    "account_category": overall_account_category,
+    "reason": "; ".join(overall_reason),
+    "dispute_letter_generated": bool(disputed_accounts),
+    "account_details": common_account_details,
+    "disputed_accounts": disputed_accounts,
+    "disputed_accounts_count": len(disputed_accounts)
+}
+
+        # Generate dispute letter if there is at least one disputed account
+        if disputed_accounts:
+            dispute_letter_markdown = DisputeLetterGenerator.generate_letter(
+                common_account_details, overall_account_category, disputed_accounts
             )
+            dispute_letter_pdf = self.convert_markdown_to_pdf(dispute_letter_markdown)
+            if dispute_letter_pdf:
+                response_data["dispute_letter_pdf"] = dispute_letter_pdf
+            else:
+                response_data["dispute_letter_pdf"] = "Failed to generate PDF."
+            message = f"{len(disputed_accounts)} disputed account(s) processed. Dispute letter generated as PDF."
+        else:
+            message = "No disputed accounts require a dispute letter."
 
-            response_data = {
-                "account_status": account_status,
-                "payment_days": payment_days_int,
-                "creditor_remark": creditor_remark,
-                "account_category": account_category,
-                "reason": reason,
-                "dispute_letter_generated": dispute_letter_needed,
-                "account_details": {
-                    "furnisher_name": matched_history.get('furnisher_name'),
-                    "account_number": matched_history.get('account_number'),
-                    "account_type": matched_history.get('account_type'),
-                    "balance": matched_history.get('balance'),
-                    "last_reported": matched_history.get('last_reported')
-                }
-            }
-
-            # Generate dispute letter if needed
-            if dispute_letter_needed:
-                account_details = {
-                    "your_name": "John Doe",  # Replace with actual user details
-                    "your_address": "123 Main St",
-                    "city_state_zip": "City, State, ZIP",
-                    "creditor_name": matched_history.get('furnisher_name'),
-                    "creditor_address": "Creditor Address",  # Replace with actual creditor address
-                    "account_number": matched_history.get('account_number'),
-                    "account_status": account_status,
-                    "payment_status": payment_days_int,
-                    "creditor_remark": creditor_remark,
-                    "reason_for_dispute": "Incorrect account status or payment history.",  # Add a reason for dispute
-                }
-
-                dispute_letter_markdown = DisputeLetterGenerator.generate_letter(account_details, account_category)
-                dispute_letter_pdf = self.convert_markdown_to_pdf(dispute_letter_markdown)
-
-                if dispute_letter_pdf:
-                    response_data["dispute_letter_pdf"] = dispute_letter_pdf
-                else:
-                    response_data["dispute_letter_pdf"] = "Failed to generate PDF."
-
-            serializer = ProcessSerializer(data=response_data)
-            if serializer.is_valid():
-                serializer.save()
-                message = f"Account categorized as {account_category}. "
-                if dispute_letter_needed:
-                    message += "Dispute letter generated as PDF."
-                else:
-                    message += "No dispute letter needed."
-
-                return Response({"message": message, "data": response_data}, status=status.HTTP_200_OK)
-
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        return Response(
-            {"error": "No matching account history found."},
-            status=status.HTTP_404_NOT_FOUND
-        )
+        serializer = ProcessSerializer(data=response_data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": message, "data": response_data}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
