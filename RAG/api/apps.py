@@ -1,11 +1,130 @@
 import streamlit as st
 import requests
 import json
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import OpenAIEmbeddings
+from pinecone import Pinecone, ServerlessSpec
+import os
+from dotenv import load_dotenv
+import uuid
+
+# Load environment variables
+load_dotenv()
+
+# Initialize Pinecone with new API style
+pc = Pinecone(api_key=os.getenv('PINECONE_API_KEY'))
+index_name = "credit"  # Changed to match your index name
+
+# Ensure index exists or create it
+if index_name not in pc.list_indexes().names():
+    pc.create_index(
+        name=index_name,
+        dimension=1536,  # OpenAI embeddings dimension
+        metric='cosine',
+        spec=ServerlessSpec(
+            cloud='aws',
+            region='us-east-1'  # Updated to match your region
+        )
+    )
+
+# Get the index reference
+index = pc.Index(index_name)
 
 # Set your Django API base URL (adjust if necessary)
 api_base = "http://localhost:8000/api"
 
 st.title("CreditRAG Dispute System")
+
+# --- 0. Upload Knowledge Base Files ---
+st.markdown("### 0. Upload Knowledge Base")
+knowledge_files = st.file_uploader(
+    "Upload credit bureau rules and regulations (PDF files)", 
+    type=["pdf"],
+    accept_multiple_files=True
+)
+
+def process_pdf(pdf_file):
+    """Process a PDF file and return chunks with metadata"""
+    pdf_reader = PdfReader(pdf_file)
+    text_chunks = []
+    
+    for page_num, page in enumerate(pdf_reader.pages, 1):
+        text = page.extract_text()
+        if text.strip():  # Only process non-empty pages
+            text_chunks.append({
+                'text': text,
+                'metadata': {
+                    'filename': pdf_file.name,
+                    'page_number': page_num
+                }
+            })
+    return text_chunks
+
+def chunk_text(text_chunks, chunk_size=500, chunk_overlap=50):
+    """Split text into smaller chunks with overlap"""
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        length_function=len
+    )
+    
+    processed_chunks = []
+    for chunk in text_chunks:
+        splits = text_splitter.split_text(chunk['text'])
+        for split in splits:
+            processed_chunks.append({
+                'text': split,
+                'metadata': chunk['metadata']
+            })
+    return processed_chunks
+
+def upload_to_pinecone(chunks):
+    """Upload chunks to Pinecone with metadata"""
+    embeddings_model = OpenAIEmbeddings()
+    
+    batch_size = 100
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i:i + batch_size]
+        ids = [str(uuid.uuid4()) for _ in batch]
+        texts = [chunk['text'] for chunk in batch]
+        metadata = [chunk['metadata'] for chunk in batch]
+        
+        # Create embeddings for the batch
+        embeds = embeddings_model.embed_documents(texts)
+        
+        # Create records for Pinecone
+        vectors_to_upsert = []
+        for id, embed, meta in zip(ids, embeds, metadata):
+            vectors_to_upsert.append({
+                'id': id,
+                'values': embed,
+                'metadata': meta
+            })
+        
+        # Upsert to Pinecone
+        index.upsert(vectors=vectors_to_upsert)
+    
+    return len(chunks)
+
+if knowledge_files:
+    with st.spinner('Processing knowledge base files...'):
+        total_chunks = 0
+        for file in knowledge_files:
+            try:
+                # Process each PDF
+                text_chunks = process_pdf(file)
+                # Split into smaller chunks with overlap
+                processed_chunks = chunk_text(text_chunks)
+                # Upload to Pinecone
+                chunks_uploaded = upload_to_pinecone(processed_chunks)
+                total_chunks += chunks_uploaded
+                st.success(f'Successfully processed {file.name} and uploaded chunks to knowledge base.')
+            except Exception as e:
+                st.error(f'Error processing {file.name}: {str(e)}')
+                continue
+            
+        st.success(f'Total files processed: {len(knowledge_files)}, Total chunks uploaded: {total_chunks}')
 
 # --- 1. Upload Report & Auto-Populate Fields ---
 st.markdown("### 1. Upload JSON Credit Report")
@@ -26,6 +145,7 @@ if uploaded_file is not None:
         st.session_state["default_account_category"] = response_data.get("default_account_category", "generic_dispute")
     else:
         st.error("Upload failed: " + r.json().get("error", "Unknown error"))
+
 
 # --- 2. Categorize Accounts ---
 st.markdown("### 2. Categorize Accounts")
@@ -50,6 +170,7 @@ with st.form("categorize_form"):
 
 # --- 3. Generate Dispute Letter ---
 st.markdown("### 3. Generate Dispute Letter (Markdown)")
+# In the "Generate Dispute Letter" section
 with st.form("generate_dispute_form"):
     st.write("Review or update the pre-populated JSON data below")
     account_details_text = st.text_area(
@@ -79,7 +200,7 @@ with st.form("generate_dispute_form"):
         else:
             payload = {
                 "account_details": account_details,
-                "account_category": account_category,
+                "account_category": account_category,  # Ensure this is passed
                 "disputed_accounts": disputed_accounts
             }
             r_md = requests.post(f"{api_base}/generate-dispute/", json=payload)

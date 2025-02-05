@@ -135,6 +135,25 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") 
+
+ #Pinecone Settings
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_ENV = os.getenv("PINECONE_ENV", "gcp-starter")  # Default to gcp-starter if not specified
+PINECONE_INDEX = "credit"  # Your specific index name
+PINECONE_DIMENSION = 1536  # OpenAI embeddings dimension
+PINECONE_METRIC = "cosine"
+PINECONE_CLOUD = "aws"
+PINECONE_REGION = "us-east-1"
+
+# Vector Database Settings
+VECTOR_DB_CONFIG = {
+    'host': 'https://credit-9mrs7xk.svc.aped-4627-b74a.pinecone.io',
+    'dimension': PINECONE_DIMENSION,
+    'metric': PINECONE_METRIC,
+    'cloud': PINECONE_CLOUD,
+    'region': PINECONE_REGION,
+}
 
 # settings.py additions
 # WKHTMLTOPDF_PATH = r'C:/Program Files/wkhtmltopdf/binwkhtmltopdf.exe'  # Adjust path as needed
