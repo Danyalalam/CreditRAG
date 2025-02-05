@@ -139,13 +139,9 @@ if uploaded_file is not None:
         st.session_state["extracted_account_details"] = json.dumps(
             response_data.get("extracted_account_details", {}), indent=2
         )
-        st.session_state["extracted_disputed_accounts"] = json.dumps(
-            response_data.get("extracted_disputed_accounts", []), indent=2
-        )
         st.session_state["default_account_category"] = response_data.get("default_account_category", "generic_dispute")
     else:
         st.error("Upload failed: " + r.json().get("error", "Unknown error"))
-
 
 # --- 2. Categorize Accounts ---
 st.markdown("### 2. Categorize Accounts")
@@ -170,7 +166,6 @@ with st.form("categorize_form"):
 
 # --- 3. Generate Dispute Letter ---
 st.markdown("### 3. Generate Dispute Letter (Markdown)")
-# In the "Generate Dispute Letter" section
 with st.form("generate_dispute_form"):
     st.write("Review or update the pre-populated JSON data below")
     account_details_text = st.text_area(
@@ -185,23 +180,17 @@ with st.form("generate_dispute_form"):
         "Account Category", 
         value=st.session_state.get("default_account_category", "delinquent_late_account")
     )
-    disputed_accounts_text = st.text_area(
-        "Disputed Accounts (JSON)",
-        value=st.session_state.get("extracted_disputed_accounts", '[]'),
-        height=150
-    )
+    # Removed the Disputed Accounts field since it's no longer needed.
     submitted_letter = st.form_submit_button("Generate Markdown Letter")
     if submitted_letter:
         try:
             account_details = json.loads(account_details_text)
-            disputed_accounts = json.loads(disputed_accounts_text)
         except Exception as e:
             st.error("Invalid JSON input: " + str(e))
         else:
             payload = {
                 "account_details": account_details,
-                "account_category": account_category,  # Ensure this is passed
-                "disputed_accounts": disputed_accounts
+                "account_category": account_category
             }
             r_md = requests.post(f"{api_base}/generate-dispute/", json=payload)
             if r_md.status_code == 200:

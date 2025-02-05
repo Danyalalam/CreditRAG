@@ -12,6 +12,7 @@ from rest_framework import status
 import markdown
 import logging
 import openai
+import google.generativeai as genai
 
 # Initialize Logger
 logger = logging.getLogger(__name__)
@@ -37,19 +38,15 @@ class DisputeLetterGenerator:
             - Creditor: {account_details.get('creditor_name')}
             - Dispute Reason: {account_details.get('reason_for_dispute')}
             """
-            
             embeddings = OpenAIEmbeddings()
             vectorstore = LangchainPinecone(index, embeddings.embed_query, "text")
-            
             relevant_docs = vectorstore.similarity_search(query, k=3)
-            
             regulations = []
             for doc in relevant_docs:
                 regulations.append({
                     'content': doc.page_content,
                     'source': f"{doc.metadata['filename']} - Page {doc.metadata['page_number']}"
                 })
-                
             return regulations
         except Exception as e:
             logger.error(f"Error retrieving regulations: {str(e)}")
@@ -94,6 +91,32 @@ class DisputeLetterGenerator:
             for reg in regulations
         ])
 
+        # Build a table of disputed accounts using actual report data
+        disputed_accounts_text = ""
+        if disputed_accounts:
+            header = "Creditor\tAccount Number/Type\tReported Date\tReason for Dispute"
+            rows = []
+            for acc in disputed_accounts:
+                # For inquiries and public records, different keys are used.
+                if acc.get("account_type") == "inquiry":
+                    creditor = acc.get("creditor_name", "N/A")
+                    account_info = acc.get("type_of_business", "N/A")
+                    date_field = acc.get("date_of_inquiry", "N/A")
+                    reason = acc.get("credit_bureau", "N/A")
+                elif acc.get("account_type") == "public_record":
+                    creditor = acc.get("creditor_name", "N/A")
+                    account_info = "-" 
+                    date_field = "-"
+                    reason = acc.get("reason_for_dispute", "N/A")
+                else:
+                    creditor = acc.get("creditor_name", "N/A")
+                    account_info = acc.get("account_number", "N/A")
+                    date_field = acc.get("reported_late_payment_dates", "N/A")
+                    reason = acc.get("reason_for_dispute", "N/A")
+                rows.append(f"{creditor}\t{account_info}\t{date_field}\t{reason}")
+            disputed_accounts_text = "\n".join([header] + rows)
+            disputed_accounts_text = f"Details of the Disputed Account(s):\n{disputed_accounts_text}\n"
+
         prompt = f"""
 You are a financial assistant and credit repair expert generating a dispute letter.
 
@@ -103,22 +126,17 @@ You are a financial assistant and credit repair expert generating a dispute lett
 **Account Details:**
 {json.dumps(account_details, indent=2)}
 
-**Disputed Accounts:**
-{json.dumps(disputed_accounts, indent=2)}
-
+{disputed_accounts_text}
 **Relevant Regulations and Laws:**
 {regulations_text}
 
 Instructions:
-1. Use the template structure but customize it
-2. Reference specific regulations supporting the dispute
-3. For each disputed item, clearly state:
-   - What is being disputed
-   - Why it's being disputed
-   - Supporting evidence or regulation
-4. Maintain professional tone
-5. Include all relevant information
-6. Keep markdown formatting
+1. Use the template structure but customize it.
+2. Reference specific regulations supporting the dispute.
+3. Clearly state what is being disputed and why.
+4. Maintain a professional tone.
+5. Include all relevant information.
+6. Keep markdown formatting.
 """
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -134,68 +152,99 @@ class UploadReportView(APIView):
         file = request.FILES.get('file')
         if not file:
             return Response({"error": "No file provided."}, status=status.HTTP_400_BAD_REQUEST)
-        
         try:
-            file.seek(0)
+            file.seek(0)  # Reset file pointer before reading
             data = json.load(file)
-            
-            # Extract personal information
-            personal_info = data.get("report", {}).get("personalInformation", [])
-            if personal_info:
-                personal = personal_info[0]
-                your_name = personal.get("name", ["John Doe"])[0]
-                your_address = personal.get("current_addresses", ["123 Main St"])[0]
-                credit_bureau_name = personal.get("credit_reporting_agency", {}).get("name", "Experian")
-            else:
-                your_name = "John Doe"
-                your_address = "123 Main St"
-                credit_bureau_name = "Experian"
-            
-            extracted_account_details = {
-                "your_name": your_name,
-                "your_address": your_address,
-                "city_state_zip": "",
-                "credit_bureau_name": credit_bureau_name
-            }
-            
-            # Extract accounts
-            account_histories = data.get("report", {}).get("accountHistories", [])
-            extracted_disputed_accounts = []
-            
-            for account in account_histories:
-                status_val = account.get("account_status", "").lower()
-                if status_val not in ["closed", "paid"]:
-                    disputed_account = {
-                        "creditor_name": account.get("furnisher_name", "Unknown"),
-                        "account_number": account.get("account_number", ""),
-                        "reason_for_dispute": account.get("reason_for_dispute", "Please review."),
-                        "reported_late_payment_dates": account.get("date_last_payment", ""),
-                        "account_status": status_val,
-                        "payment_history": account.get("payment_history", ""),
-                        "current_balance": account.get("current_balance", "")
-                    }
-                    extracted_disputed_accounts.append(disputed_account)
-            
-            # Save report for future reference
-            reports_dir = settings.BASE_DIR / "api/reports"
-            os.makedirs(reports_dir, exist_ok=True)
-            file_path = reports_dir / "uploaded_report.json"
-            with open(file_path, 'w') as f:
-                json.dump(data, f)
-            
-            return Response({
-                "message": "Report uploaded successfully.",
-                "extracted_account_details": extracted_account_details,
-                "extracted_disputed_accounts": extracted_disputed_accounts,
-                "default_account_category": "delinquent_late_account"
-            }, status=status.HTTP_200_OK)
-            
         except Exception as e:
-            logger.error(f"Error processing report: {str(e)}")
-            return Response(
-                {"error": f"Error processing report: {str(e)}"}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
+            return Response({"error": "Invalid JSON file."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Save report for future reference
+        reports_dir = settings.BASE_DIR / "api/reports"
+        os.makedirs(reports_dir, exist_ok=True)
+        file_path = reports_dir / "uploaded_report.json"
+        with open(file_path, 'w') as f:
+            json.dump(data, f)
+        
+        # Extract report data from the uploaded JSON
+        personal_info = data.get("report", {}).get("personalInformation", [])
+        if personal_info:
+            personal = personal_info[0]
+            your_name = personal.get("name", ["John Doe"])[0]
+            your_address = personal.get("current_addresses", ["123 Main St"])[0]
+            credit_bureau_name = personal.get("credit_reporting_agency", {}).get("name", "Experian")
+        else:
+            your_name = "John Doe"
+            your_address = "123 Main St"
+            credit_bureau_name = "Experian"
+        
+        extracted_account_details = {
+            "your_name": your_name,
+            "your_address": your_address,
+            "city_state_zip": "",
+            "credit_bureau_name": credit_bureau_name
+        }
+        
+        # Extract disputed accounts from account histories
+        account_histories = data.get("report", {}).get("accountHistories", [])
+        extracted_disputed_accounts = []
+        for account in account_histories:
+            status_val = account.get("account_status", "").lower()
+            if status_val not in ["closed", "paid"]:
+                disputed_account = {
+                    "creditor_name": account.get("furnisher_name", "Unknown"),
+                    "account_number": account.get("account_number", ""),
+                    "reason_for_dispute": account.get("reason_for_dispute", "Please review."),
+                    "reported_late_payment_dates": account.get("date_last_payment", "")
+                }
+                extracted_disputed_accounts.append(disputed_account)
+        
+        # Extract inquiries and mark them as inquiry type.
+        inquiries = data.get("report", {}).get("inquiries", [])
+        for inquiry in inquiries:
+            disputed_inquiry = {
+                "creditor_name": inquiry.get("creditor_name", "Unknown"),
+                "type_of_business": inquiry.get("type_of_business", ""),
+                "credit_bureau": inquiry.get("credit_bureau", ""),
+                "date_of_inquiry": inquiry.get("date_of_inquiry", ""),
+                "account_type": "inquiry"
+            }
+            extracted_disputed_accounts.append(disputed_inquiry)
+        
+        # Extract public records from the "summary" section for Public Record Account.
+        summary = data.get("summary", {})
+        if summary:
+            public_records = summary.get("public_records")
+            if public_records is not None:
+                disputed_public_record = {
+                    "creditor_name": "Public Record",
+                    "account_number": "",
+                    "reason_for_dispute": f"Public records count: {public_records}",
+                    "account_type": "public_record"
+                }
+                extracted_disputed_accounts.append(disputed_public_record)
+        
+        # Determine default category based on account histories; if none match, use inquiry if available.
+        default_category = "generic_dispute"
+        for account in account_histories:
+            status_val = account.get("account_status", "").lower()
+            if "late" in status_val or "delinquent" in status_val:
+                default_category = "delinquent_late_account"
+                break
+            elif "derogatory" in status_val:
+                default_category = "derogatory_account"
+                break
+        if default_category == "generic_dispute":
+            if inquiries:
+                default_category = "inquiry_account"
+            elif summary and summary.get("public_records") is not None:
+                default_category = "public_record_account"
+        
+        return Response({
+            "message": "Report uploaded successfully.",
+            "extracted_account_details": extracted_account_details,
+            "extracted_disputed_accounts": extracted_disputed_accounts,
+            "default_account_category": default_category
+        }, status=status.HTTP_200_OK)
 
 class CategorizeAccountsView(APIView):
     def get(self, request, format=None):
@@ -213,6 +262,7 @@ class CategorizeAccountsView(APIView):
             classifications = []
             embeddings = OpenAIEmbeddings()
             vectorstore = LangchainPinecone(index, embeddings.embed_query, "text")
+            helper = ProcessHelper()
             
             for idx, account_status in enumerate(account_status_list):
                 payment_days = payment_days_list[idx] if idx < len(payment_days_list) else "0"
@@ -226,48 +276,22 @@ class CategorizeAccountsView(APIView):
                         status=status.HTTP_400_BAD_REQUEST
                     )
                 
-                # Query Pinecone
+                # Query Pinecone for relevant regulations to flag violations
                 query = f"""
                 Classification criteria for credit account with:
                 Status: {account_status}
                 Payment Days Late: {payment_days}
                 Remark: {creditor_remark}
                 """
-                
                 relevant_docs = vectorstore.similarity_search(query, k=2)
                 regulations_text = "\n".join([doc.page_content for doc in relevant_docs])
                 
-                # Use OpenAI for classification
-                classification_prompt = f"""
-                Based on these details and regulations:
-
-                Account Status: {account_status}
-                Days Late: {payment_days}
-                Creditor Remark: {creditor_remark}
-
-                Relevant Regulations:
-                {regulations_text}
-
-                Classify as one of:
-                - Positive Account
-                - Derogatory Account
-                - Delinquent/Late Account
-                - Inquiry Account
-                - Public Record Account
-
-                Respond in JSON format:
-                {{"category": "category_name", "reason": "detailed_reason"}}
-                """
-
-                response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system", "content": "You are a credit report analysis expert."},
-                        {"role": "user", "content": classification_prompt}
-                    ]
-                )
+                # Use Gemini (through ProcessHelper) for classification with assigned rules and knowledge base.
+                result = helper.classify_account(account_status, payment_status=payment_days, creditor_remark=creditor_remark)
                 
-                result = json.loads(response['choices'][0]['message']['content'])
+                # Append flagged regulations to the classification reason
+                result["reason"] += f" | Flagged Regulations: {regulations_text}" if regulations_text else ""
+                
                 classifications.append({
                     "account_status": account_status,
                     "payment_days": payment_days_int,
@@ -277,7 +301,6 @@ class CategorizeAccountsView(APIView):
                 })
             
             return Response({"classifications": classifications}, status=status.HTTP_200_OK)
-            
         except Exception as e:
             logger.error(f"Error in account categorization: {str(e)}")
             return Response(
@@ -286,53 +309,16 @@ class CategorizeAccountsView(APIView):
             )
 
 class GenerateDisputeView(APIView):
-    def determine_category(self, disputed_accounts):
-        """
-        Determine overall account category based on each disputed account's data.
-        Rules:
-          - If an account has "inquiry" type then category = inquiry_account.
-          - If an account has "public_record" type then category = public_record_account.
-          - Otherwise, if reason contains derogatory keywords then derogatory_account.
-          - Otherwise, if reason contains late indicators then delinquent_late_account.
-          - Otherwise, positive_account.
-        """
-        category_priority = {
-            "public_record_account": 5,
-            "inquiry_account": 4,
-            "derogatory_account": 3,
-            "delinquent_late_account": 2,
-            "positive_account": 1
-        }
-        overall = "positive_account"
-        for account in disputed_accounts:
-            if account.get("account_type") == "inquiry":
-                current = "inquiry_account"
-            elif account.get("account_type") == "public_record":
-                current = "public_record_account"
-            else:
-                reason = account.get("reason_for_dispute", "").lower()
-                if any(kw in reason for kw in ["charge-off", "collection", "repossession", "foreclosure", "settled"]):
-                    current = "derogatory_account"
-                elif any(kw in reason for kw in ["late", "past due"]):
-                    current = "delinquent_late_account"
-                else:
-                    current = "positive_account"
-            if category_priority[current] > category_priority[overall]:
-                overall = current
-        return overall
-
     def post(self, request, format=None):
         received_data = request.data
         account_details = received_data.get("account_details")
-        provided_category = received_data.get("account_category")  # Ensure this is passed correctly
-        disputed_accounts = received_data.get("disputed_accounts")
-        if not account_details or disputed_accounts is None:
-            return Response({"error": "Missing required fields."}, status=status.HTTP_400_BAD_REQUEST)
+        provided_category = received_data.get("account_category")
+        # Get disputed accounts from the report data if available
+        disputed_accounts = received_data.get("extracted_disputed_accounts", [])
+        if not account_details:
+            return Response({"error": "Missing required field: account_details."}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Use the provided category or compute it if not provided
-        overall_category = provided_category if provided_category else self.determine_category(disputed_accounts)
-        
-        # Generate the dispute letter using the determined category
+        overall_category = provided_category if provided_category else "delinquent_late_account"
         dispute_letter_markdown = DisputeLetterGenerator.generate_letter(
             account_details, overall_category, disputed_accounts
         )
@@ -340,7 +326,6 @@ class GenerateDisputeView(APIView):
 
 class DownloadPDFView(APIView):
     def get(self, request, format=None):
-        # Inform users that PDF conversion functionality is no longer available.
         return Response(
             {"error": "PDF conversion functionality has been removed."},
             status=status.HTTP_400_BAD_REQUEST
@@ -375,7 +360,7 @@ class ProcessHelper(APIView):
         - Inquiry Account
         - Public Record Account
 
-        Based on the following credit report details:
+        Based on on the following credit report details:
         - Account Status: {account_status}
         - Payment Status: {payment_status}
         - Creditor Remark: {creditor_remark}
@@ -395,7 +380,7 @@ class ProcessHelper(APIView):
         }}
         ```
         """
-        model = genai.GenerativeModel("gpt-3.5-turbo")
+        model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
         try:
             json_start = response.text.find("{")
