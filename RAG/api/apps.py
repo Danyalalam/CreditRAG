@@ -159,7 +159,7 @@ with st.form("categorize_form"):
     )
     payment_days = st.text_input(
         "Payment Days", 
-        value="0, 0, 0, 30_days_late, 0"
+        value="0, 0, 0, 30, 0"
     )
     creditor_remark = st.text_input(
         "Creditor Remark(s)", 
