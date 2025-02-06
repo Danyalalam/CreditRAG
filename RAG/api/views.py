@@ -345,15 +345,52 @@ class ProcessHelper(APIView):
             return {}
 
     def find_matching_account(self, json_data, account_status):
-        account_histories = json_data.get('report', {}).get('accountHistories', [])
-        normalized_status = account_status.title()
+        # Search in the 'accountHistories' section inside the report
+        account_histories = json_data.get("report", {}).get("accountHistories", [])
+        normalized_status = account_status.lower()
         for account in account_histories:
-            if account.get('account_status') == normalized_status:
+            if account.get("account_status", "").lower() == normalized_status:
                 return account
         return None
 
     def classify_account(self, account_status, payment_status=None, creditor_remark=None):
-        # Normalize input values
+        # Load the uploaded report
+        report_data = self.load_json("identityiq_1.json")
+        
+        # Extract personal information
+        personal_info = None
+        personal_list = report_data.get("report", {}).get("personalInformation", [])
+        if personal_list:
+            personal_info = personal_list[0]
+
+        # Search for the matching account in the 'accountHistories' section inside the report
+        matching_account = self.find_matching_account(report_data, account_status)
+        if not matching_account:
+            return {
+                "category": "Not Found",
+                "reason": "No matching account found in the uploaded report account histories."
+            }
+
+        # Override missing inputs with values from the matching account
+        payment_status = payment_status or matching_account.get("payment_status", "")
+        creditor_remark = creditor_remark or matching_account.get("comments", "")
+
+        # Prepare personal details for the Gemini prompt
+        personal_details = ""
+        if personal_info:
+            name = personal_info.get("name", [""])[0]
+            current_address = personal_info.get("current_addresses", [""])[0]
+            personal_details = f"Name: {name}\nCurrent Address: {current_address}"
+
+        # Use the matching account's status for classification
+        matched_status = matching_account.get("account_status", "").lower()
+        if matched_status == "closed":
+            return {
+                "category": "Closed Account",
+                "reason": "The account is closed and is not eligible for dispute."
+            }
+
+        # Normalize input values for rule-based logic
         acc_status = account_status.lower() if account_status else ""
         pay_status = payment_status.lower() if payment_status else ""
         remarks = creditor_remark.lower() if creditor_remark else ""
@@ -387,10 +424,16 @@ You are a financial expert analyzing credit reports. Use the following classific
    - Type: Public Record (including bankruptcies, liens, judgments).
    Example: IF account_type = "public_record" THEN Public Record
 
-Given the following details:
-- Account Status: {account_status}
+Personal Information:
+{personal_details}
+
+Account Details (from report):
+- Reported Account Status: {matching_account.get("account_status", "")}
 - Payment Status: {payment_status}
 - Creditor Remark: {creditor_remark}
+
+User Provided:
+- Searched Account Status: {account_status}
 
 Return a JSON object exactly in the following format without any extra text:
 {{
@@ -398,7 +441,7 @@ Return a JSON object exactly in the following format without any extra text:
     "reason": "Explanation for classification"
 }}
 """
-        # Call the Gemini model with the prompt
+        # Call Gemini (or another language model) with the prompt.
         model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
         try:
@@ -410,7 +453,7 @@ Return a JSON object exactly in the following format without any extra text:
             logger.error("Error parsing gemini response: " + str(e))
             gemini_result = None
 
-        # Apply rule-based logic independently.
+        # Rule-based classification as fallback.
         if acc_status == "inquiry":
             rule_result = {"category": "Inquiry Account", "reason": "Account type is inquiry."}
         elif acc_status == "public record":
@@ -425,9 +468,9 @@ Return a JSON object exactly in the following format without any extra text:
         elif pay_status in ["30_days_late", "60_days_late", "90_days_late"] or acc_status == "past_due":
             rule_result = {"category": "Delinquent/Late Account", "reason": "Account shows evidence of late or delinquent payments."}
         else:
-            rule_result = {"category": "Uncategorized", "reason": "No matching criteria found based on account details."}
+            rule_result = {"category": "Uncategorized", "reason": "No matching criteria found based on available account details."}
 
-        # If Gemini result exists and differs from the rule-based result, combine the insights.
+        # Combine Gemini and rule-based results if they differ.
         if gemini_result and gemini_result.get("category") != rule_result.get("category"):
             combined_result = {
                 "category": rule_result.get("category"),
