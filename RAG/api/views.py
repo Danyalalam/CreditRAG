@@ -25,7 +25,8 @@ pc = Pinecone(api_key=settings.PINECONE_API_KEY)
 index = pc.Index(settings.PINECONE_INDEX)
 
 class DisputeLetterGenerator:
-    TEMPLATE_DIR = settings.BASE_DIR / "api/templates/dispute_letters"
+    # Update to point to the html_letters directory
+    TEMPLATE_DIR = settings.BASE_DIR / "api/templates/html_letters"
 
     @staticmethod
     def get_relevant_regulations(account_details, account_category):
@@ -55,14 +56,15 @@ class DisputeLetterGenerator:
     @staticmethod
     def select_template(account_category):
         account_category = account_category.lower().replace(" ", "_")
+        # Update mapping to use HTML templates
         template_mapping = {
-            "positive_account": "Positive_Account_Dispute_Letter.md",
-            "derogatory_account": "Derogatory_Account_Dispute_Letter.md",
-            "delinquent_late_account": "Late_Payment_Dispute_Letter.md",
-            "inquiry_account": "Inquiry_Dispute_Letter.md",
-            "public_record_account": "Public_Record_Dispute_Letter.md"
+            "positive_account": "Positive_Account_Dispute_Letter Template.html",
+            "derogatory_account": "Derogatory Account Dispute Letter Template.html",
+            "delinquent_late_account": "Late Payment Dispute Letter Template.html",
+            "inquiry_account": "Inquiry Dispute Letter Template.html",
+            "public_record_account": "Public Record Dispute Letter Template.html"
         }
-        return template_mapping.get(account_category, "generic_dispute.md")
+        return template_mapping.get(account_category, "generic_dispute_letter.html")
 
     @staticmethod
     def load_template(template_name):
@@ -71,7 +73,7 @@ class DisputeLetterGenerator:
             with open(template_path, "r") as file:
                 return file.read()
         except FileNotFoundError:
-            fallback_path = os.path.join(DisputeLetterGenerator.TEMPLATE_DIR, "generic_dispute.md")
+            fallback_path = os.path.join(DisputeLetterGenerator.TEMPLATE_DIR, "generic_dispute_letter.html")
             try:
                 with open(fallback_path, "r") as file:
                     return file.read()
@@ -91,13 +93,12 @@ class DisputeLetterGenerator:
             for reg in regulations
         ])
 
-        # Build a table of disputed accounts using actual report data
+        # Optionally, build a table of disputed accounts if needed
         disputed_accounts_text = ""
         if disputed_accounts:
             header = "Creditor\tAccount Number/Type\tReported Date\tReason for Dispute"
             rows = []
             for acc in disputed_accounts:
-                # For inquiries and public records, different keys are used.
                 if acc.get("account_type") == "inquiry":
                     creditor = acc.get("creditor_name", "N/A")
                     account_info = acc.get("type_of_business", "N/A")
@@ -115,33 +116,34 @@ class DisputeLetterGenerator:
                     reason = acc.get("reason_for_dispute", "N/A")
                 rows.append(f"{creditor}\t{account_info}\t{date_field}\t{reason}")
             disputed_accounts_text = "\n".join([header] + rows)
-            disputed_accounts_text = f"Details of the Disputed Account(s):\n{disputed_accounts_text}\n"
+            disputed_accounts_text = f"<p>Details of the Disputed Account(s):<br>{disputed_accounts_text.replace(chr(9), '&nbsp;&nbsp;&nbsp;')}</p>"
 
         prompt = f"""
-You are a financial assistant and credit repair expert generating a dispute letter.
+You are a financial assistant and credit repair expert generating a dispute letter in HTML format.
 
-**Template:**
+<strong>Template:</strong>
 {template_content}
 
-**Account Details:**
-{json.dumps(account_details, indent=2)}
+<strong>Account Details:</strong>
+<pre>{json.dumps(account_details, indent=2)}</pre>
 
 {disputed_accounts_text}
-**Relevant Regulations and Laws:**
-{regulations_text}
+<strong>Relevant Regulations and Laws:</strong>
+<pre>{regulations_text}</pre>
 
 Instructions:
+0. Do add the complete info of the user including the name, account number, and address.
 1. Use the template structure but customize it.
 2. Reference specific regulations supporting the dispute.
 3. Clearly state what is being disputed and why.
 4. Maintain a professional tone.
 5. Include all relevant information.
-6. Keep markdown formatting.
+6. Return the final letter as valid HTML.
 """
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are a financial assistant helping to generate a dispute letter."},
+                {"role": "system", "content": "You are a financial assistant helping to generate a dispute letter in HTML format."},
                 {"role": "user", "content": prompt}
             ]
         )
@@ -331,6 +333,7 @@ class DownloadPDFView(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
+
 class ProcessHelper(APIView):
     def load_json(self, filename):
         json_file_path = settings.BASE_DIR / f'api/{filename}'
@@ -350,43 +353,88 @@ class ProcessHelper(APIView):
         return None
 
     def classify_account(self, account_status, payment_status=None, creditor_remark=None):
-        credit_data = self.load_json("identityiq_1.json")
-        knowledge_base = self.load_json("output_data.json")
+        # Normalize input values
+        acc_status = account_status.lower() if account_status else ""
+        pay_status = payment_status.lower() if payment_status else ""
+        remarks = creditor_remark.lower() if creditor_remark else ""
+
+        # Build prompt with explicit rules for the Gemini model.
         prompt = f"""
-        You are a financial expert analyzing credit reports. Categorize the given account into one of:
-        - Positive Account
-        - Derogatory Account
-        - Delinquent/Late Account
-        - Inquiry Account
-        - Public Record Account
+You are a financial expert analyzing credit reports. Use the following classification rules:
 
-        Based on on the following credit report details:
-        - Account Status: {account_status}
-        - Payment Status: {payment_status}
-        - Creditor Remark: {creditor_remark}
+1. Positive Account:
+   - Account Status: Open, Paid, or any other positive account status.
+   - Payment Status: Current or Paid As Agreed.
+   - Late Status: No late payments.
+   - Report Comments: No derogatory remarks.
+   Example: IF account_status = "current" AND no late_payments AND no derogatory_remarks THEN Positive Account
 
-        Additionally, use this **Knowledge Base** to help improve classification:
-        {json.dumps(knowledge_base, indent=2)}
+2. Derogatory Account:
+   - Account Status: Derogatory, Indeterminate, etc.
+   - Payment Status: Charge-off, Collection, Repossession, Foreclosure.
+   - Report Comments: Contains charge-off or collection remarks.
+   Example: IF account_status IN ["charge-off", "collection", "settled", "repossession"] OR derogatory_remarks EXISTS THEN Derogatory Account
 
-        **IMPORTANT:**
-        - Only respond in **pure JSON format**.
-        - Do **NOT** include any explanations or extra text outside the JSON.
-        - Return the JSON in this **exact format**:
+3. Inquiry:
+   - Type: Inquiry (hard or soft) and if the inquiry date is within 2 years.
+   Example: IF account_type = "inquiry" THEN Inquiry
 
-        ```json
-        {{
-            "category": "Categorized Account Type",
-            "reason": "Short explanation for classification"
-        }}
-        ```
-        """
+4. Delinquent or Late Account:
+   - Payment Status: Late payments (e.g., 30_days_late, 60_days_late, 90_days_late) or account_status equals "past_due".
+   Example: IF payment_status IN ["30_days_late", "60_days_late", "90_days_late"] OR account_status = "past_due" THEN Delinquent or Late Account
+
+5. Public Record:
+   - Type: Public Record (including bankruptcies, liens, judgments).
+   Example: IF account_type = "public_record" THEN Public Record
+
+Given the following details:
+- Account Status: {account_status}
+- Payment Status: {payment_status}
+- Creditor Remark: {creditor_remark}
+
+Return a JSON object exactly in the following format without any extra text:
+{{
+    "category": "Categorized Account Type",
+    "reason": "Explanation for classification"
+}}
+"""
+        # Call the Gemini model with the prompt
         model = genai.GenerativeModel("gemini-2.0-flash-exp")
         response = model.generate_content(prompt)
         try:
             json_start = response.text.find("{")
             json_end = response.text.rfind("}") + 1
             cleaned_json = response.text[json_start:json_end]
-            return json.loads(cleaned_json)
-        except json.JSONDecodeError:
-            logger.error("LLM response could not be parsed into JSON.")
-            return {"category": "Uncategorized", "reason": "LLM response could not be parsed"}
+            gemini_result = json.loads(cleaned_json)
+        except Exception as e:
+            logger.error("Error parsing gemini response: " + str(e))
+            gemini_result = None
+
+        # Apply rule-based logic independently.
+        if acc_status == "inquiry":
+            rule_result = {"category": "Inquiry Account", "reason": "Account type is inquiry."}
+        elif acc_status == "public record":
+            rule_result = {"category": "Public Record Account", "reason": "Account type is public record."}
+        elif acc_status in ["charge-off", "collection", "settled", "repossession"] or ("charge-off" in remarks or "collection" in remarks):
+            rule_result = {"category": "Derogatory Account", "reason": "Account status or remarks indicate derogatory activity."}
+        elif acc_status in ["current", "open", "paid"] and \
+             pay_status in ["current", "paid as agreed", "paid_as_agreed"] and \
+             "late" not in pay_status and \
+             ("charge-off" not in remarks and "collection" not in remarks):
+            rule_result = {"category": "Positive Account", "reason": "Account is in good standing with no late or derogatory indicators."}
+        elif pay_status in ["30_days_late", "60_days_late", "90_days_late"] or acc_status == "past_due":
+            rule_result = {"category": "Delinquent/Late Account", "reason": "Account shows evidence of late or delinquent payments."}
+        else:
+            rule_result = {"category": "Uncategorized", "reason": "No matching criteria found based on account details."}
+
+        # If Gemini result exists and differs from the rule-based result, combine the insights.
+        if gemini_result and gemini_result.get("category") != rule_result.get("category"):
+            combined_result = {
+                "category": rule_result.get("category"),
+                "reason": f"Rule-based: {rule_result.get('reason')} | Gemini-based: {gemini_result.get('reason')}"
+            }
+            return combined_result
+        elif gemini_result:
+            return gemini_result
+        else:
+            return rule_result

@@ -146,10 +146,25 @@ if uploaded_file is not None:
 # --- 2. Categorize Accounts ---
 st.markdown("### 2. Categorize Accounts")
 with st.form("categorize_form"):
-    st.write("Enter comma-separated values for each field:")
-    account_status = st.text_input("Account Status(es)", value="delinquent, derogatory")
-    payment_days = st.text_input("Payment Days", value="45,30")
-    creditor_remark = st.text_input("Creditor Remark(s)", value="Late fee dispute, Incorrect reporting")
+    st.write("Enter comma-separated values for each field based on the following defaults using our rules:")
+    st.markdown("""
+    **Defaults:**
+    - **Account Status(es):** current, charge-off, inquiry, past_due, public record  
+    - **Payment Days:** 0, 0, 0, 30_days_late, 0  
+    - **Creditor Remark(s):** none, collection reported, none, none, none  
+    """)
+    account_status = st.text_input(
+        "Account Status(es)", 
+        value="current, charge-off, inquiry, past_due, public record"
+    )
+    payment_days = st.text_input(
+        "Payment Days", 
+        value="0, 0, 0, 30_days_late, 0"
+    )
+    creditor_remark = st.text_input(
+        "Creditor Remark(s)", 
+        value="none, collection reported, none, none, none"
+    )
     submitted_categorize = st.form_submit_button("Categorize Accounts")
     
     if submitted_categorize:
